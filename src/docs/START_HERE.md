@@ -15,7 +15,7 @@ ACE is a distributed system of microservices that provides:
 ## First Steps
 
 1. **Understand the structure**  
-   Read [README.md](./README.md) for how this documentation is organized. For the role of index, START_HERE, and README in every directory, see [REPO_RULES.md](./REPO_RULES.md).
+   Read [README.md](./README.md) for how this documentation is organized. For the role of index, START_HERE, and README in every directory, see [REPO_RULES.md](./REPO_RULES.md). For GitHub links to each ACE repo, see [repositories.md](./repositories.md).
 
 2. **Review architecture**  
    Go to [architecture/](./architecture/) to see how services connect and communicate.
@@ -23,10 +23,13 @@ ACE is a distributed system of microservices that provides:
 3. **Set up your environment**  
    Use [environments/](./environments/) for local setup (e.g. docker-compose) and deployment targets.
 
-4. **Follow project rules**  
+4. **Understand infrastructure**  
+   Use [infrastructure/](./infrastructure/) for ace-infra, AWS, Terraform, and Kubernetes.
+
+5. **Follow project rules**  
    Check [rules/](./rules/) for Gitflow, code standards, security, and conventions.
 
-5. **Work on a service**  
+6. **Work on a service**  
    Use [services/](./services/) for per-service APIs, setup, and debugging.
 
 ## Key Conventions
@@ -44,8 +47,10 @@ ACE is a distributed system of microservices that provides:
 | Onboard / understand the system | This file + [README.md](./README.md) |
 | See high-level design | [architecture/](./architecture/) |
 | Run or deploy the system | [environments/](./environments/) |
+| Understand infra (ace-infra, AWS, Terraform, K8s) | [infrastructure/](./infrastructure/) |
 | Know coding/deploy rules | [rules/](./rules/) |
 | Document or use a specific service | [services/](./services/) |
+| Get clone URLs / links for each ACE repo | [repositories.md](./repositories.md) |
 | Learn how index/README/START_HERE work in each folder | [REPO_RULES.md](./REPO_RULES.md) |
 
 ---
