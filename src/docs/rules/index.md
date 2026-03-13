@@ -2,6 +2,7 @@
 
 - [README.md](./README.md)
 - [main-rules.md](./main-rules.md)
+- [application-requirements.md](./application-requirements.md)
 - [pr-rules.md](./pr-rules.md)
 - [development-rules.md](./development-rules.md)
 - [infrastructure-rules.md](./infrastructure-rules.md)

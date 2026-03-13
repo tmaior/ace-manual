@@ -12,6 +12,9 @@ Overview of the rules directory: why it exists, what each document covers, and h
 **[main-rules.md](./main-rules.md)**  
 Core rules that always apply: English for code and docs, document every change, use the correct doc structure, keep index/README/START_HERE in sync, respect standardizations, read rules before acting, and never invent—read or ask.
 
+**[application-requirements.md](./application-requirements.md)**  
+Rules and procedures that **every** ACE application must follow: docs, code, APIs, security, logging, infrastructure, deployment, testing. Use when including a new application or auditing compliance.
+
 **[pr-rules.md](./pr-rules.md)**  
 Pull request flow, base branches, PR template selection by branch pair, PR body structure (features, improvements, bug fixes, testing, dependencies, etc.), generating `PR.md`, and using `gh pr create`. Includes pre-PR checklist and repository-specific notes.
 

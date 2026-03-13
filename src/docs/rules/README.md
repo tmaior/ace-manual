@@ -20,6 +20,7 @@ Each markdown file in this directory describes one area of rules. All of them ar
 | Document | What it covers |
 |----------|----------------|
 | [main-rules.md](./main-rules.md) | **Core rules that always apply**: English for code and docs, document every change, use the right doc structure, keep index/README/START_HERE in sync, respect standardizations, read rules before acting, and never invent—read or ask. Start here for the non‑negotiable principles. |
+| [application-requirements.md](./application-requirements.md) | **Application requirements**: Rules, standardizations, behaviors, and procedures that **every** ACE application must follow. Single entry point for including a new app and for ensuring all apps meet code, docs, security, infra, and deployment requirements. |
 | [pr-rules.md](./pr-rules.md) | **Pull requests**: Branch flow and base branches, which PR template to use for each branch pair, PR body structure (features, improvements, bug fixes, testing, dependencies, etc.), how to generate `PR.md`, using `gh pr create`, pre-PR checklist, and PR review process (what reviewers check, approval before merge). |
 | [development-rules.md](./development-rules.md) | **Development workflow**: Feature branches from latest `development`, local testing before commit/push (feature branches + development for unchanged apps), merging into `development`, using and updating each service's `docs/`, creating new docs within the rules, and following existing standardizations (e.g. pagination like the rest of the app). |
 | [infrastructure-rules.md](./infrastructure-rules.md) | **Infrastructure and AWS**: Region (us-east-1), mandatory resource tags (Project=ACE, Environment=&lt;ENV&gt;-ACE), analyzing options before creating resources, Kubernetes/EKS usage, secrets (env vars via `ace/&lt;env&gt;/&lt;service&gt;-secrets`), CI/CD and deployments, and the ace-infra repository structure. |
@@ -36,15 +37,16 @@ Each markdown file in this directory describes one area of rules. All of them ar
 ### If you are new to the project
 
 1. Read **[main-rules.md](./main-rules.md)** first. It defines the principles that override everything else (language, documentation, structure, no invention).
-2. Then read **[gitflow-rules.md](./gitflow-rules.md)** and **[development-rules.md](./development-rules.md)** so you know how to branch, test, and merge.
-3. Before opening a PR, read **[pr-rules.md](./pr-rules.md)** and use the correct template and description format.
-4. When writing code or docs, use **[standardization-rules.md](./standardization-rules.md)** for naming, commits, APIs, and patterns; use **[documentation-rules.md](./documentation-rules.md)** for where and how to document.
-5. If you touch infrastructure or deployment, read **[infrastructure-rules.md](./infrastructure-rules.md)**.
-6. For security (validation, auth, secrets), read **[security-rules.md](./security-rules.md)**. For how to test (simple checks, no unit tests), read **[testing-rules.md](./testing-rules.md)**.
+2. If you are **adding or auditing an application**, read **[application-requirements.md](./application-requirements.md)** for the rules that every app must follow.
+3. Then read **[gitflow-rules.md](./gitflow-rules.md)** and **[development-rules.md](./development-rules.md)** so you know how to branch, test, and merge.
+4. Before opening a PR, read **[pr-rules.md](./pr-rules.md)** and use the correct template and description format.
+5. When writing code or docs, use **[standardization-rules.md](./standardization-rules.md)** for naming, commits, APIs, and patterns; use **[documentation-rules.md](./documentation-rules.md)** for where and how to document.
+6. If you touch infrastructure or deployment, read **[infrastructure-rules.md](./infrastructure-rules.md)**.
+7. For security (validation, auth, secrets), read **[security-rules.md](./security-rules.md)**. For how to test (simple checks, no unit tests), read **[testing-rules.md](./testing-rules.md)**.
 
 ### If you are an AI agent
 
-- At the **start of every task**, determine which rules apply (main, PR, development, documentation, standardization, gitflow, infrastructure, security, testing) and read the relevant files. Do not invent behavior or conventions; follow what is written here and in the service `docs/`.
+- At the **start of every task**, determine which rules apply (main, application requirements, PR, development, documentation, standardization, gitflow, infrastructure, security, testing) and read the relevant files. Do not invent behavior or conventions; follow what is written here and in the service `docs/`.
 - When implementing a **feature** (e.g. pagination, a new endpoint), search the codebase for existing implementations and **reuse the same pattern** (see [standardization-rules.md](./standardization-rules.md) and [development-rules.md](./development-rules.md)).
 - When **creating or moving documentation**, follow [documentation-rules.md](./documentation-rules.md) and [main-rules.md](./main-rules.md) (structure, kebab-case, index/README/START_HERE).
 - When **creating a PR**, follow [pr-rules.md](./pr-rules.md) (template, `PR.md`, `gh pr create`). When **changing code**, plan the doc update in the same PR ([documentation-rules.md](./documentation-rules.md)).
