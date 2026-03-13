@@ -1,0 +1,12 @@
+# Rules – Index
+
+- [README.md](./README.md)
+- [main-rules.md](./main-rules.md)
+- [pr-rules.md](./pr-rules.md)
+- [development-rules.md](./development-rules.md)
+- [infrastructure-rules.md](./infrastructure-rules.md)
+- [documentation-rules.md](./documentation-rules.md)
+- [standardization-rules.md](./standardization-rules.md)
+- [gitflow-rules.md](./gitflow-rules.md)
+- [security-rules.md](./security-rules.md)
+- [testing-rules.md](./testing-rules.md)
