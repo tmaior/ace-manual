@@ -12,6 +12,9 @@ Overview of this directory: what it is for, which environments exist, and how to
 **[local.md](./local.md)**  
 Local development setup: prerequisites (Docker, Node), how to run with docker-compose (local-env), which services must be up (backend, db-gateway, Redis, PostgreSQL, frontend), order of startup, and health checks.
 
+**[local-setup/](./local-setup/)**  
+Step-by-step guide to bring up a local ACE environment equal to local-env. For developers and AI agents: prerequisites, repo layout, docker-compose and config, env vars, startup sequence, profiles, health checks, and troubleshooting. Follow the numbered docs in order for a full, repeatable setup.
+
 **[development.md](./development.md)**  
 Development environment (EKS): cluster development-ace-eks (us-east-1), namespace dev. How to deploy, access, and key secrets path (ace/dev/...).
 

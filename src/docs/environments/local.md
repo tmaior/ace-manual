@@ -37,10 +37,11 @@ Required sibling repos (relative to `local-env`):
 
 ## Host name and DNS
 
-Many services use the host **`localdash.ace.ezops.cloud`** for callbacks and frontend/API URLs (e.g. `VITE_API_URL`, `FRONTEND_URL`, `QUEUE_DOCS_SYNC_URL`). For this to work:
+Many services need a hostname for callbacks and frontend/API URLs (e.g. `VITE_API_URL`, `FRONTEND_URL`, `QUEUE_DOCS_SYNC_URL`). Which hostname to use depends on who runs the environment:
 
-- **Option A**: Point `localdash.ace.ezops.cloud` to your machine (DNS or `/etc/hosts`: `127.0.0.1 localdash.ace.ezops.cloud`).
-- **Option B**: Replace `localdash.ace.ezops.cloud` with `localhost` in env vars and Compose; some callbacks (e.g. from LLM to backend) may need to stay as a hostname reachable from containers (e.g. host-gateway or your LAN IP).
+- **Developer (personal machine)**: **`localdash.ace.ezops.cloud`** is often used in the team's local-env; it points to that developer's machine IP. Point it to your machine via DNS or `/etc/hosts` (`127.0.0.1 localdash.ace.ezops.cloud`).
+- **Agent / automated environment (e.g. Daytona)**: Do **not** use `localdash.ace.ezops.cloud`. Use the URL configured in the **Daytona proxy** for the workspace, or use **`ace-development.ace.ezops.cloud`**. The latter can be registered in **Route53**, in the hosted zone **ace.ezops.cloud**, pointing to the IP of the environment (Daytona proxy or dev VM). See [local-setup/09-hostname-and-dns.md](./local-setup/09-hostname-and-dns.md).
+- **Option: localhost**: Replace the hostname with `localhost` in env vars and Compose for every URL the browser or host uses; some callbacks (e.g. from LLM to backend) may need to stay as a hostname reachable from containers (e.g. host-gateway or your LAN IP).
 
 ---
 
@@ -228,13 +229,13 @@ Secrets (Slack tokens, API keys, DB passwords, JWT, OAuth client secrets, etc.) 
 - **AWS**: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`, `SECRET_PATH_PREFIX` (optional for local).
 - **Slack**: `SLACK_BOT_TOKEN`, `SLACK_SIGNING_SECRET` (per bot).
 - **LLM / LiteLLM**: `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, `OPENROUTER_API_KEY`, `LITELLM_*`.
-- **URLs**: Many services use `http://localdash.ace.ezops.cloud:<port>` for frontend, API, gateway, LLM, SQS (LocalStack). Backend callback (e.g. LLM→backend) often uses Docker service name (e.g. `http://dash-back:8080`) so it works from inside the network.
+- **URLs**: Many services use a hostname and port for frontend, API, gateway, LLM, SQS (LocalStack). Developers often use `localdash.ace.ezops.cloud` (pointing to their machine); **agents must use the Daytona proxy URL or `ace-development.ace.ezops.cloud`** (see [local-setup/09-hostname-and-dns.md](./local-setup/09-hostname-and-dns.md)). Backend callback (e.g. LLM→backend) often uses Docker service name (e.g. `http://dash-back:8080`) so it works from inside the network.
 
 **LocalStack / SQS:**  
-If using LocalStack for SQS, set `LOCAL_AWS_ENDPOINT` (e.g. `http://localdash.ace.ezops.cloud:3066` or `http://localstack:4566` from another container) and queue URLs to the LocalStack queue URLs (see init-scripts). Filas criadas pelo `init-scripts/sqs.sh`: e.g. `ResourceHealthChecks-local.fifo`, `ResourceHealthCheckResults-local.fifo`, `DocsSync-local.fifo`, etc.
+If using LocalStack for SQS, set `LOCAL_AWS_ENDPOINT` to your hostname and port 3066 (e.g. `http://ace-development.ace.ezops.cloud:3066` for the agent, or `http://localdash.ace.ezops.cloud:3066` for a developer) or `http://localstack:4566` from another container, and set queue URLs to the LocalStack queue URLs (see init-scripts). Filas criadas pelo `init-scripts/sqs.sh`: e.g. `ResourceHealthChecks-local.fifo`, `ResourceHealthCheckResults-local.fifo`, `DocsSync-local.fifo`, etc.
 
 **.env in local-env root:**  
-Used for: `CERT_DOMAIN` (e.g. localdash.ace.ezops.cloud for Jira HTTPS), `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION` (services that call AWS; letsencrypt needs AWS for Route53). Optional: `UID`, `GID` for container user (default 1000:1000).
+Used for: `CERT_DOMAIN` (e.g. localdash.ace.ezops.cloud for a developer's Jira HTTPS, or ace-development.ace.ezops.cloud for the agent), `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION` (services that call AWS; letsencrypt needs AWS for Route53). Optional: `UID`, `GID` for container user (default 1000:1000).
 
 ---
 
@@ -246,7 +247,7 @@ In `local-env/init-scripts/`, scripts in `ready.d` run when LocalStack is ready.
 - ResourceHealthChecks-local.fifo, ResourceHealthCheckResults-local.fifo, ResourceHealthChecksDLQ-local.fifo  
 - DocsSync-local.fifo  
 
-Queue URLs (LocalStack default account): `http://localstack:4566/000000000000/<QueueName>`. From host: `http://localdash.ace.ezops.cloud:3066/000000000000/<QueueName>` if DNS points to your machine.
+Queue URLs (LocalStack default account): `http://localstack:4566/000000000000/<QueueName>`. From host: use your hostname and port 3066 (e.g. `http://ace-development.ace.ezops.cloud:3066/...` for the agent, or `http://localdash.ace.ezops.cloud:3066/...` if that DNS points to your machine).
 
 ---
 
@@ -283,7 +284,7 @@ Other services may not define a healthcheck in Compose; check each repo’s docs
 
 ## Docker Compose (ACE services only)
 
-Below is the **docker-compose** content for the ACE system only (infrastructure + ACE apps + litellm). Secrets are shown as `${VAR}`; set them in `local-env/.env` or in the compose file (do not commit real values). Replace `${ACE_ROOT}` with your actual path (e.g. `/home/admin/ace` or `$HOME/ace`).
+Below is the **docker-compose** content for the ACE system only (infrastructure + ACE apps + litellm). Secrets are shown as `${VAR}`; set them in `local-env/.env` or in the compose file (do not commit real values). Replace `${ACE_ROOT}` with your actual path (e.g. `/home/admin/ace` or `$HOME/ace`). In the example, `localdash.ace.ezops.cloud` appears in URLs; **for the agent**, use **ace-development.ace.ezops.cloud** (or the Daytona proxy URL) instead — see [local-setup/09-hostname-and-dns.md](./local-setup/09-hostname-and-dns.md).
 
 ```yaml
 version: '3.8'

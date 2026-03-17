@@ -3,6 +3,7 @@
 - [README.md](./README.md)
 - [START_HERE.md](./START_HERE.md)
 - [local.md](./local.md)
+- [local-setup/](./local-setup/)
 - [development.md](./development.md)
 - [staging.md](./staging.md)
 - [demo.md](./demo.md)

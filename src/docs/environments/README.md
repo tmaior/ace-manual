@@ -8,7 +8,7 @@ Environment setup, configuration, and deployment for ACE. This directory is the 
 
 This directory holds documentation for:
 
-- **Local development** (docker-compose, required services) — see [local.md](./local.md)
+- **Local development** (docker-compose, required services) — see [local.md](./local.md). For a full step-by-step setup (including for AI agents), see [local-setup/](./local-setup/).
 - **Development (EKS)** — cluster development-ace-eks, namespace dev — see [development.md](./development.md)
 - **Staging (EKS)** — cluster development-ace-eks, namespace stg — see [staging.md](./staging.md)
 - **Demo (EKS)** — cluster development-ace-eks, namespace demo — see [demo.md](./demo.md)
