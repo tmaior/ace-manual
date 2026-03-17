@@ -134,6 +134,3 @@ All service-to-service and pod-to-database traffic stays inside the VPC.
 - [terraform-modules.md](./terraform-modules.md) — VPC and EKS modules
 - [kubernetes-and-deployment.md](./kubernetes-and-deployment.md) — Ingress and ALB
 
----
-
-*Last updated: March 2025*

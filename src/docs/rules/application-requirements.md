@@ -200,7 +200,7 @@ Details for specific topics (e.g. PR process, infrastructure tags, security) are
 | **URLs/config** | All base URLs and endpoints from environment variables; never hardcode; REST; document endpoints. |
 | **Security** | Validate all inputs; JWT on protected endpoints; no secrets in repo; safe error messages; enforce permissions on server; rate limiting for bots/external calls. |
 | **Errors/logging** | Check response before reading body; do not read body twice; structured logs; correlation ID; no secrets in logs. |
-| **Infra** | ace-infra folder (Dockerfile + K8s manifests); correct namespace; Secrets Manager path `ace/<env>/<service>-secrets`; document required keys; health endpoint; tags Project=ACE, Environment=&lt;ENV&gt;-ACE. |
+| **Infra** | ace-infra folder (Dockerfile + K8s manifests); correct namespace; Secrets Manager path `ace/<env>/<service>-secrets`; document required keys; health endpoint; tags Project=ACE, Environment=<ENV>-ACE. |
 | **CI/CD** | GitHub Actions; ECR us-east-1; deploy from ace-infra; GitHub Environments for secrets; approvals for production. |
 | **Development** | Feature branches from development; local testing before push; simple behavior tests; PR Testing section; reuse existing patterns; do not invent. |
 | **Cross-service** | Document dependencies and env vars; update service-catalog, integrations, env-vars-and-secrets when adding or changing integrations. |

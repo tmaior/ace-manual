@@ -53,6 +53,10 @@ ACE is a distributed system of microservices that provides:
 | Get clone URLs / links for each ACE repo | [repositories.md](./repositories.md) |
 | Learn how index/README/START_HERE work in each folder | [REPO_RULES.md](./REPO_RULES.md) |
 
----
+## For AI agents
 
-*Last updated: March 2025*
+- **Mandatory rules**: Read [rules/main-rules.md](./rules/main-rules.md) first. All code and technical documentation must be in English; document every change; keep index, README, and START_HERE in sync when adding, removing, or moving docs; do not invent—read docs and code, then ask if unclear.
+- **Doc structure**: Every documentation directory must have **index.md**, **START_HERE.md**, and **README.md**; when creating a new folder, add all three; when changing contents, update the three in that folder. See [REPO_RULES.md](./REPO_RULES.md).
+- **Where to document**: Central docs root (here: `src/docs/`) for system-wide topics; service `docs/` for that app. See [rules/documentation-rules.md](./rules/documentation-rules.md).
+- **Technical depth**: Service docs under [services/](./services/) include overviews, dependencies, environment variables, APIs/routes, build/deploy, and queues/workers where applicable. Use them to understand behavior before changing code.
+

@@ -33,20 +33,17 @@ Every documentation directory (including subdirectories) should contain **index.
 - **Deploying or debugging**: Use [environments/](./environments/) and the relevant [services/](./services/) doc.
 - **Infrastructure (ace-infra, Terraform, AWS, K8s)**: Use [infrastructure/](./infrastructure/).
 
-## Relation to Other Docs
+## Relation to other docs
 
-- **`ace/docs/`** (here): Cross-repo, system-wide documentation.
+- **This docs root** (in ace-manual: `src/docs/`): Cross-repo, system-wide documentation. Top-level sections: rules/, architecture/, environments/, infrastructure/, services/.
 - **`<service>/docs/`** (e.g. `ace-db-gateway/docs/`): Service-specific API docs, setup, and guides.
 
-Keep both in sync: when you change behavior or APIs, update the relevant service doc and, if it affects the whole system, the appropriate file under `ace/docs/`.
+Keep both in sync: when you change behavior or APIs, update the relevant service doc and, if it affects the whole system, the appropriate file under this docs root.
 
 ## Contributing to Docs
 
 - Use **kebab-case** for file names (e.g. `api-endpoints.md`, `debugging-guide.md`).
-- Prefer **English** for technical content; Portuguese is acceptable for user-facing or team-facing guides when agreed.
+- All technical documentation must be in **English** (see [rules/main-rules.md](./rules/main-rules.md)); user-facing UI copy may use another language when required by the product.
 - Update docs in the same PR that changes behavior or APIs.
 - Prefer short, clear sections and links over long single files.
 
----
-
-*Last updated: March 2025*

@@ -71,7 +71,7 @@ Rules for infrastructure and cloud resources used by the ACE system. All infrast
 
 ## 7. ace-infra repository structure
 
-- **&lt;service-name&gt;/** – One folder per deployed service (e.g. ace-jira-integration, ace-llm) containing Dockerfile(s) and Kubernetes manifests (deployment, service, ingress). Scripts (e.g. DB setup, queue creation) may live in **scripts/**.
+- **<service-name>/** – One folder per deployed service (e.g. ace-jira-integration, ace-llm) containing Dockerfile(s) and Kubernetes manifests (deployment, service, ingress). Scripts (e.g. DB setup, queue creation) may live in **scripts/**.
 - **docs/** – Infrastructure documentation (e.g. EKS pods inventory, runbooks). Update when adding services or changing topology.
 
 **Agents**: When adding a new ACE service to the cluster, create a folder under ace-infra with the same naming pattern (e.g. `ace-<service>/`), add Dockerfile and K8s YAMLs, and document the service and any scripts.
@@ -83,7 +83,7 @@ Rules for infrastructure and cloud resources used by the ACE system. All infrast
 | Topic | Rule |
 |-------|------|
 | Region | All ACE infra on AWS in **us-east-1**. |
-| Tags | Every resource: **Project** = **ACE**, **Environment** = **&lt;ENV&gt;-ACE**. |
+| Tags | Every resource: **Project** = **ACE**, **Environment** = **<ENV>-ACE**. |
 | New resources | Analyze options and current architecture; choose the option that fits best and keeps cost low. |
 | Kubernetes | EKS cluster `<env>-ace-eks`; use correct namespaces; manifests in ace-infra per-service folders; follow existing ALB/Ingress patterns. |
 | Secrets | **`ace/<env>/<service>-secrets`** = env vars for apps only (not arbitrary config); CI/CD secrets in **GitHub Environments**; document required keys. |

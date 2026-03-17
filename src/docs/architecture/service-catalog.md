@@ -25,7 +25,8 @@ Catalog of every ACE service that agents and developers may need to touch. For e
 | Item | Repo / path | Tech stack | Main responsibility | Key env vars / notes |
 |------|-------------|------------|---------------------|----------------------|
 | ace-infra | ace-infra/ | Terraform, Kubernetes, AWS | Infra as code; EKS, ECR, manifests per service | (Terraform vars, K8s namespaces) |
-| local-env | local-env/ | docker-compose, configs | Local development setup | Per service in compose |
+
+**Local development**: docker-compose and configs are documented in [environments/local.md](../environments/local.md), not as a separate service repo.
 
 ---
 

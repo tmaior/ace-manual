@@ -35,6 +35,3 @@ This directory holds documentation for:
 - **Environments**: For local setup and deployment targets, see [../environments/](../environments/).
 - **Services**: For per-service APIs and setup, see [../services/](../services/).
 
----
-
-*Last updated: March 2025*

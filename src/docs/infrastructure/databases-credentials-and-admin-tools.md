@@ -160,6 +160,3 @@ The admin tools **pgAdmin** (PostgreSQL), **Redis Insight** (Redis), and **Mongo
 - [terraform-modules.md](./terraform-modules.md) — Where RDS/DocumentDB/Redis are defined
 - [../environments/env-vars-and-secrets.md](../environments/env-vars-and-secrets.md) — Env vars and Secrets Manager pattern
 
----
-
-*Last updated: March 2025*

@@ -103,6 +103,3 @@ The backend **KnowledgeBaseProvisioningService** can **deprovision** (delete Dat
 - **SQS queue creation**: [scripts-and-automation.md](./scripts-and-automation.md) (create-docs-sync-queue.sh), [terraform-modules.md](./terraform-modules.md) (docs-sync-queue module).
 - **Env vars**: [../environments/env-vars-and-secrets.md](../environments/env-vars-and-secrets.md) (QUEUE_DOCS_SYNC_URL, etc.).
 
----
-
-*Last updated: March 2025*

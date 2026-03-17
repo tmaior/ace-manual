@@ -60,7 +60,7 @@ All ACE infrastructure is in **AWS region us-east-1**. Do not create ACE resourc
 Every resource that belongs to ACE must have:
 
 - **Project** = **ACE**
-- **Environment** = **&lt;ENV&gt;-ACE** (e.g. `dev-ACE`, `staging-ACE`, `prod-ACE`)
+- **Environment** = **<ENV>-ACE** (e.g. `dev-ACE`, `staging-ACE`, `prod-ACE`)
 
 Used for cost allocation, filtering, and governance. See [../rules/infrastructure-rules.md](../rules/infrastructure-rules.md).
 

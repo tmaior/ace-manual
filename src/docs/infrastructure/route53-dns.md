@@ -109,6 +109,3 @@ Use that hostname as the **target** of the CNAME (or as the Alias target) in Rou
 - [kubernetes-and-deployment.md](./kubernetes-and-deployment.md) — Ingress and ALB
 - [../environments/creating-a-new-environment.md](../environments/creating-a-new-environment.md) — Ingress hostnames for new environments
 
----
-
-*Last updated: March 2025*

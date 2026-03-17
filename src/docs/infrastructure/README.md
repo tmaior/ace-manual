@@ -52,6 +52,3 @@ Use this directory when you need to add a new service to the cluster, create a n
 - **Environments**: [../environments/](../environments/) — local, dev, stg, demo, prod; env vars and secrets **source** (path pattern only).
 - **Architecture**: [../architecture/deployment.md](../architecture/deployment.md) — high-level where ACE runs (EKS, AWS).
 
----
-
-*Last updated: March 2025*

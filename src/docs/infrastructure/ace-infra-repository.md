@@ -149,6 +149,3 @@ When you add or remove services or namespaces, update the relevant docs and the 
 - **Infrastructure rules**: [../rules/infrastructure-rules.md](../rules/infrastructure-rules.md)
 - **Environments**: [../environments/](../environments/)
 
----
-
-*Last updated: March 2025*

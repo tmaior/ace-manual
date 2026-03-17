@@ -1,6 +1,6 @@
 # Repository documentation structure: index, START_HERE, and README
 
-Across the ACE documentation structure (ace-system and its subdirectories, and optionally each service's `docs/`), **every directory** that holds documentation must contain three standard files: **index.md**, **START_HERE.md**, and **README.md**. This document explains what each file is for and how to maintain them.
+Across the ACE documentation structure (in ace-manual: `src/docs/` and its subdirectories; and optionally each service's `docs/`), **every directory** that holds documentation must contain three standard files: **index.md**, **START_HERE.md**, and **README.md**. This document explains what each file is for and how to maintain them.
 
 ---
 
@@ -65,7 +65,7 @@ In short: **new folder → create the three files; new/removed/moved doc (or sub
 ## Rules to follow
 
 1. **Documentation location**: All documentation files and folders **must** be created **inside `src/docs`**. Never create docs or doc directories outside `src/docs`; `src/docs` is the single root for all repository documentation.
-2. **Every documentation directory** (ace-system, rules/, architecture/, environments/, services/, and any new subdirectory you create) **must** contain **index.md**, **START_HERE.md**, and **README.md**. If you create a new folder, you **must** create these three files there.
+2. **Every documentation directory** (e.g. rules/, architecture/, environments/, infrastructure/, services/, and any new subdirectory you create under the docs root) **must** contain **index.md**, **START_HERE.md**, and **README.md**. If you create a new folder, you **must** create these three files there.
 3. **Keep them in sync**: When you add, remove, or move a document (or subdirectory), you **must** update **index.md**, **START_HERE.md**, and **README.md** in the affected directory so that the list, descriptions, and overview stay correct. This is required by the [main rules](rules/main-rules.md).
 4. **Same names everywhere**: Use exactly **index.md**, **START_HERE.md**, and **README.md** (lowercase, with underscore in START_HERE) so that tooling and people can rely on the same names in every folder.
 5. **Scope**: Each directory’s trio applies only to **that** directory. The index and START_HERE list the contents of that folder (and its immediate subdirectories, if you list them); the README describes that folder’s role and how to use it. Subdirectories have their own index, START_HERE, and README for their own contents.

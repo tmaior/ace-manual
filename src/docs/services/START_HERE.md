@@ -33,11 +33,11 @@ Commands API for bots and automation.
 **[ace-ops-scheduler/](./ace-ops-scheduler/)**  
 Operations scheduler service.
 
+**[ace-jira-integration/](./ace-jira-integration/)**  
+Jira Connect app: webhooks (issue/comment), project link resolution via db-gateway, payloads to ops-scheduler.
+
 **[ace-infra/](./ace-infra/)**  
 Infrastructure as code: Terraform, K8s, AWS; see also [../infrastructure/](../infrastructure/).
-
-**[local-env/](./local-env/)**  
-Local development setup (docker-compose, configs); see also [../environments/local.md](../environments/local.md).
 
 ---
 

@@ -94,6 +94,3 @@ Use it only when the project uses a separate demo cluster; the main **demo** nam
 - **Infrastructure rules**: [../rules/infrastructure-rules.md](../rules/infrastructure-rules.md)
 - **Creating a new environment**: [../environments/creating-a-new-environment.md](../environments/creating-a-new-environment.md)
 
----
-
-*Last updated: March 2025*

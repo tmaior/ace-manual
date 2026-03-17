@@ -83,7 +83,7 @@ kubectl create namespace qa
 - **Manifests**: For each service deployed to the new environment, ensure there are manifests (or parameterized templates) that use the **new namespace** and, if needed, env-specific image tags. Manifests typically live in per-service folders under ace-infra.
 - **Ingress**: Add or duplicate Ingress resources with **hostnames** for the new environment. Convention: **`<short>-<service>.ace.ezops.cloud`** (e.g. `qa-dashboard.ace.ezops.cloud`, `qa-api-ace.ace.ezops.cloud`). Use the same ALB Ingress Controller and group name as other envs.
 - **Route53**: If DNS is managed in Route53, create or update records for the new hostnames (A/ALIAS to the ALB). Some envs use a script (e.g. `update-route53-demo.sh`); add a similar script or step for the new env if needed.
-- **Tags**: Ensure any new AWS resources (if you create any) have **Project = ACE** and **Environment = &lt;short&gt;-ACE** (e.g. `qa-ACE`). See [../rules/infrastructure-rules.md](../rules/infrastructure-rules.md).
+- **Tags**: Ensure any new AWS resources (if you create any) have **Project = ACE** and **Environment = <short>-ACE** (e.g. `qa-ACE`). See [../rules/infrastructure-rules.md](../rules/infrastructure-rules.md).
 
 ---
 

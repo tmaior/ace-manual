@@ -91,7 +91,7 @@ See [gitflow rules](./gitflow-rules.md) for details.
 
 ## 8. Documentation structure and placement
 
-- **Central docs**: Under `docs/ace-system/` in folders such as `rules/`, `architecture/`, `environments/`, `services/`. Place each doc in the **correct** folder.
+- **Central docs**: Under the central docs root (in ace-manual: `src/docs/`) in folders such as `rules/`, `architecture/`, `environments/`, `services/`. Place each doc in the **correct** folder.
 - **Service docs**: Each service has a **`docs/`** directory. Use subfolders (e.g. `api/`, `development/`, `architecture/`) as in the project; **kebab-case** for file names.
 - **Entry points**: When adding or moving docs, update **index**, **README**, and **START_HERE** at the relevant level. See [main rules](./main-rules.md) and [documentation rules](./documentation-rules.md).
 
@@ -143,6 +143,6 @@ See [infrastructure rules](./infrastructure-rules.md) for full details.
 | Logging | Structured logs; correlation ID; no secrets in logs. |
 | Security | Input validation; JWT on protected routes; no secrets in code. |
 | Docs | Correct folder; kebab-case filenames; update index/README/START_HERE. |
-| Infra | us-east-1; tags Project=ACE, Environment=&lt;ENV&gt;-ACE; naming pattern. |
+| Infra | us-east-1; tags Project=ACE, Environment=<ENV>-ACE; naming pattern. |
 | Patterns | Reuse existing patterns (pagination, errors, APIs); do not invent new ones. |
 | Deprecation / breaking | Document deprecations in docs; use BREAKING CHANGE: in commit and describe in PR and docs. |

@@ -69,7 +69,7 @@ So in demo: **no ops-scheduler, no commands-api, no bots**. The demo stack is fr
   - **ace-db-gateway**: push to **demo** or **demo/*** (workflow `eks-deploy.demo.yaml`). Ingress host `demo-db-gateway.ace.ezops.cloud`; Route53 via same script.
   - **ace-configuration**: push to **demo** or **demo/*** (workflow `eks-deploy.demo.yaml`). Deploys to namespace demo; URL `demo-configuration.ace.ezops.cloud`. May run as Job (migrations) or Deployment; see ace-infra docs/demo-environment.
 - **Manifests**: Manifests live in **ace-infra** (e.g. ace-web-frontend, ace-web-backend, ace-db-gateway). The workflow checks out ace-infra and replaces `namespace:` with **demo** and (for demo) replaces the ingress host with the demo hostname, then applies to the cluster.
-- **Image tags**: Demo often uses tags such as **demo-** or **demo-&lt;timestamp&gt;** (e.g. in ECR: `ace/web-frontend:demo-*`, `ace/web-backend:demo-*`, `ace/db-gateway:demo-*`). Use tags suitable for demo; do not point demo at production images.
+- **Image tags**: Demo often uses tags such as **demo-** or **demo-<timestamp>** (e.g. in ECR: `ace/web-frontend:demo-*`, `ace/web-backend:demo-*`, `ace/db-gateway:demo-*`). Use tags suitable for demo; do not point demo at production images.
 
 ---
 

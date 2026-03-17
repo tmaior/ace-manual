@@ -138,6 +138,3 @@ This is the typical pattern for **CI/CD** (e.g. GitHub Actions): the workflow as
 - [aws-resources.md](./aws-resources.md) — EKS and region
 - AWS docs: [EKS access entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html) (newer model) and [aws-auth ConfigMap](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html)
 
----
-
-*Last updated: March 2025*

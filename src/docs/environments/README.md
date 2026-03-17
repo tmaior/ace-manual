@@ -44,6 +44,3 @@ This directory holds documentation for:
 - **architecture/deployment.md**: High-level where ACE runs (EKS, AWS, local). This directory goes into **how** to set up and deploy in each env.
 - **rules/infrastructure-rules.md**: Region (us-east-1), tags, secrets path, CI/CD. Keep env-vars-and-secrets and env docs aligned with it.
 
----
-
-*Last updated: March 2025*

@@ -1,20 +1,20 @@
 # ACE System Documentation - Index
 
-Central index for all ACE (Automation, Control & Enablement) system documentation.
+Contents of this directory (links only). For descriptions and how to use, see [START_HERE.md](./START_HERE.md) and [README.md](./README.md).
 
-## Documentation Structure
+- [README.md](./README.md)
+- [START_HERE.md](./START_HERE.md)
+- [REPO_RULES.md](./REPO_RULES.md)
+- [repositories.md](./repositories.md)
+- [rules/](./rules/)
+- [architecture/](./architecture/)
+- [environments/](./environments/)
+- [infrastructure/](./infrastructure/)
+- [services/](./services/)
 
-| Section | Description |
-|--------|-------------|
-| [START_HERE.md](./START_HERE.md) | Entry point for new contributors and readers |
-| [README.md](./README.md) | Overview and how to use this documentation |
-| [REPO_RULES.md](./REPO_RULES.md) | Rules for index.md, START_HERE.md, and README.md in every directory |
-| [repositories.md](./repositories.md) | GitHub URLs and clone links for all ACE repositories |
-| [rules/](./rules/) | Project rules, conventions, and standards |
-| [architecture/](./architecture/) | System design, diagrams, and technical decisions |
-| [environments/](./environments/) | Environment setup, configs, and deployment targets |
-| [infrastructure/](./infrastructure/) | ace-infra repository, AWS resources, Terraform, Kubernetes, deployment |
-| [services/](./services/) | Per-service documentation (APIs, setup, debugging) |
+---
+
+## Quick reference
 
 ## Quick Links
 
@@ -26,10 +26,7 @@ Central index for all ACE (Automation, Control & Enablement) system documentatio
 - **Conventions & rules**: See [rules/](./rules/)
 - **Doc structure (index, START_HERE, README)**: See [REPO_RULES.md](./REPO_RULES.md)
 
-## Repository-Level Docs
+## Repository-level docs
 
-Individual services may have their own `docs/` folders (e.g. `ace-db-gateway/docs/`, `ace-stack-backend/docs/`). This `ace/docs/` directory is the **cross-repository** hub for system-wide documentation.
+In this repository (ace-manual), the documentation root is **`src/docs`**. Individual services may have their own `docs/` folders (e.g. `ace-db-gateway/docs/`, `ace-stack-backend/docs/`). This directory is the **cross-repository** hub for system-wide documentation.
 
----
-
-*Last updated: March 2025*

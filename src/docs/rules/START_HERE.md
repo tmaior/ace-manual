@@ -22,7 +22,7 @@ Pull request flow, base branches, PR template selection by branch pair, PR body 
 Development workflow: feature branches from latest `development`, local testing before commit/push, merging into `development`, using and updating each service's `docs/`, creating new docs within the rules, and following existing standardizations (e.g. pagination like the rest of the app).
 
 **[infrastructure-rules.md](./infrastructure-rules.md)**  
-Infrastructure and AWS: region (us-east-1), mandatory resource tags (Project=ACE, Environment=&lt;ENV&gt;-ACE), analyzing options before creating resources, Kubernetes/EKS, secrets (env vars via `ace/&lt;env&gt;/&lt;service&gt;-secrets`), CI/CD and deployments, and ace-infra repository structure.
+Infrastructure and AWS: region (us-east-1), mandatory resource tags (Project=ACE, Environment=<ENV>-ACE), analyzing options before creating resources, Kubernetes/EKS, secrets (env vars via `ace/<env>/<service>-secrets`), CI/CD and deployments, and ace-infra repository structure.
 
 **[documentation-rules.md](./documentation-rules.md)**  
 When and where to document; document everything that is done. Structure and kebab-case file names, types of docs (setup, architecture, API, debugging), quality and working examples, and keeping docs in the same PR as the change. Service `docs/` as the starting point.

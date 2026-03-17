@@ -112,6 +112,3 @@ All scripts below live under **ace-infra/scripts/** unless otherwise noted.
 - **Environments**: [../environments/](../environments/)
 - **Creating a new environment**: [../environments/creating-a-new-environment.md](../environments/creating-a-new-environment.md)
 
----
-
-*Last updated: March 2025*

@@ -12,5 +12,5 @@
 - [ace-ops-bot/](./ace-ops-bot/)
 - [ace-commands-api/](./ace-commands-api/)
 - [ace-ops-scheduler/](./ace-ops-scheduler/)
+- [ace-jira-integration/](./ace-jira-integration/)
 - [ace-infra/](./ace-infra/)
-- [local-env/](./local-env/)

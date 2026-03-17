@@ -104,15 +104,15 @@ All services are in `local-env/docker-compose.yaml`. Summary:
 
 | Service | Image / Build | Port (host:container) | Profiles | Volumes | Entrypoint / Notes |
 |---------|----------------|------------------------|----------|---------|--------------------|
-| **configuration** | node:20 | 3030:3030 | database, all, application, apps, bot, bot-logs, scheduler, infra, llm, dashboard, ops, tool | &lt;ACE_ROOT&gt;/ace-configuration:/app | yarn start:configuration. DB: configuration on psql; Redis prefix local:. |
-| **db-gateway** | node:20 | 3031:3031 | database, all, application, apps, bot, bot-logs, scheduler, infra, llm, dashboard, ops | &lt;ACE_ROOT&gt;/ace-db-gateway:/app | yarn dev. CONFIGURATION_DB_URL, LLM_DB_URL, REDIS_HOST, tokens, ENCRYPTION_KEY, AWS_* (Secrets Manager path optional for local). |
-| **slackbot** | node:20 | 3033:3033 | apps, bot, bot-logs, all | &lt;ACE_ROOT&gt;/ace-slackbot:/app | yarn start:dev. SLACK_*, AI_API_URL→llm, REDIS_HOST, ACE_DB_GATEWAY_ENDPOINT, STACK_BACKEND_URL. |
-| **commands-api** | **build** (see below) | 3035:3035 | apps, scheduler, all | &lt;ACE_ROOT&gt;/ace-commands-api:/app | /app/entrypoint.sh. Build from ace-infra context + local-ace.commands-api.Dockerfile. SQS URLs (LocalStack or AWS), MONGO_URL, ACE_DB_GATEWAY_ENDPOINT. |
-| **ops-scheduler** | node:20 | 3036:3036 | apps, ops, scheduler, all | &lt;ACE_ROOT&gt;/ace-ops-scheduler:/app | yarn sequelize:dev. Depends on localstack. LLM_API_URI, ACE_DB_GATEWAY_*, REDIS_HOST, RESOURCE_HEALTH_*_QUEUE_URL, LOCAL_AWS_ENDPOINT. |
-| **ops-bot** | node:20 | 3038:3038 | apps, bot, bot-logs, all | &lt;ACE_ROOT&gt;/ace-ops-bot:/app | yarn start:dev. SLACK_*, AI_API_URL→llm, REDIS_HOST, ACE_DB_GATEWAY_ENDPOINT, SCHEDULLER_DB_GATEWAY_TOKEN. |
+| **configuration** | node:20 | 3030:3030 | database, all, application, apps, bot, bot-logs, scheduler, infra, llm, dashboard, ops, tool | <ACE_ROOT>/ace-configuration:/app | yarn start:configuration. DB: configuration on psql; Redis prefix local:. |
+| **db-gateway** | node:20 | 3031:3031 | database, all, application, apps, bot, bot-logs, scheduler, infra, llm, dashboard, ops | <ACE_ROOT>/ace-db-gateway:/app | yarn dev. CONFIGURATION_DB_URL, LLM_DB_URL, REDIS_HOST, tokens, ENCRYPTION_KEY, AWS_* (Secrets Manager path optional for local). |
+| **slackbot** | node:20 | 3033:3033 | apps, bot, bot-logs, all | <ACE_ROOT>/ace-slackbot:/app | yarn start:dev. SLACK_*, AI_API_URL→llm, REDIS_HOST, ACE_DB_GATEWAY_ENDPOINT, STACK_BACKEND_URL. |
+| **commands-api** | **build** (see below) | 3035:3035 | apps, scheduler, all | <ACE_ROOT>/ace-commands-api:/app | /app/entrypoint.sh. Build from ace-infra context + local-ace.commands-api.Dockerfile. SQS URLs (LocalStack or AWS), MONGO_URL, ACE_DB_GATEWAY_ENDPOINT. |
+| **ops-scheduler** | node:20 | 3036:3036 | apps, ops, scheduler, all | <ACE_ROOT>/ace-ops-scheduler:/app | yarn sequelize:dev. Depends on localstack. LLM_API_URI, ACE_DB_GATEWAY_*, REDIS_HOST, RESOURCE_HEALTH_*_QUEUE_URL, LOCAL_AWS_ENDPOINT. |
+| **ops-bot** | node:20 | 3038:3038 | apps, bot, bot-logs, all | <ACE_ROOT>/ace-ops-bot:/app | yarn start:dev. SLACK_*, AI_API_URL→llm, REDIS_HOST, ACE_DB_GATEWAY_ENDPOINT, SCHEDULLER_DB_GATEWAY_TOKEN. |
 | **llm** | **build** (see below) | 3040:8080 | apps, llm, scheduler, bot, bot-logs, dashboard, all | — | Build: context ezrael-bot-llm, dockerfile ace-infra/ace-llm/ace.llm.Dockerfile3. DATABASE_URL→psql/llmdatabase, REDIS_URL, API keys (Anthropic, Gemini, OpenRouter, etc.), DB_GATEWAY_URL, SLACKBOT_*, QUEUE_*, LITELLM_*. |
-| **dash-back** | node:20 | 3041:8080 | application, dashboard, all | &lt;ACE_ROOT&gt;/ace-stack-backend:/app | sh -c "yarn install && yarn start:dev". DB_*, JWT_*, OAuth (Google/GitHub), ACE_GATEWAY_URL, REDIS_URL, LLM_URL, QUEUE_DOCS_SYNC_URL, SLACK_*, WIKI_JS_*, SELF_URL. |
-| **dash-front** | node:20 | 3042:4173 | application, dashboard, all | &lt;ACE_ROOT&gt;/ace-dashboard-frontend:/app | /app/entrypoint.sh. VITE_* URLs point to localdash.ace.ezops.cloud:30xx (API, gateway, LLM). |
+| **dash-back** | node:20 | 3041:8080 | application, dashboard, all | <ACE_ROOT>/ace-stack-backend:/app | sh -c "yarn install && yarn start:dev". DB_*, JWT_*, OAuth (Google/GitHub), ACE_GATEWAY_URL, REDIS_URL, LLM_URL, QUEUE_DOCS_SYNC_URL, SLACK_*, WIKI_JS_*, SELF_URL. |
+| **dash-front** | node:20 | 3042:4173 | application, dashboard, all | <ACE_ROOT>/ace-dashboard-frontend:/app | /app/entrypoint.sh. VITE_* URLs point to localdash.ace.ezops.cloud:30xx (API, gateway, LLM). |
 
 ### Supporting (ACE stack)
 

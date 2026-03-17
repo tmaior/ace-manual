@@ -165,6 +165,3 @@ Do not document IAM role ARNs or account IDs in this manual.
 - **Infrastructure rules**: [../rules/infrastructure-rules.md](../rules/infrastructure-rules.md)
 - **Env vars and secrets (source of vars)**: [../environments/env-vars-and-secrets.md](../environments/env-vars-and-secrets.md)
 
----
-
-*Last updated: March 2025*

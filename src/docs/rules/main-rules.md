@@ -19,7 +19,7 @@ These rules **must always be followed** by anyone (human or AI agent) working on
 
 - Every **new feature**, **change in behavior**, or **fix** must be reflected in documentation.
 - Documentation may live in:
-  - Central documentation repositories or structure (e.g. `ace/docs/ace-system/`), or
+  - Central documentation (e.g. ace-manual `src/docs/` or project's docs root), or
   - The `docs/` folder of the microservice (or repo) that was modified.
 - Prefer documenting in the most relevant place; if it affects multiple services or the whole system, update both central and service-level docs as needed.
 
@@ -30,10 +30,10 @@ These rules **must always be followed** by anyone (human or AI agent) working on
 ## 3. Documentation structure: use the right place
 
 - Documentation is organized by **directories and subdirectories** that group related content.
-- Each doc must be placed in the **correct** part of that structure (e.g. `rules/`, `architecture/`, `environments/`, `services/` under `ace-system/`, or the appropriate subfolder inside a service's `docs/`).
+- Each doc must be placed in the **correct** part of that structure (e.g. `rules/`, `architecture/`, `environments/`, `services/` under the docs root, or the appropriate subfolder inside a service's `docs/`).
 - Do not create ad-hoc locations; follow the existing structure. If a new category is needed, align with the project's documentation conventions first.
 
-**Agents**: Before creating or moving a doc, check the existing layout (e.g. `docs/ace-system/`, `docs/ace-system/rules/`, and each service's `docs/`) and place the file in the appropriate folder.
+**Agents**: Before creating or moving a doc, check the existing layout (e.g. in ace-manual: `src/docs/rules/`, `src/docs/architecture/`, and each service's `docs/`) and place the file in the appropriate folder.
 
 ---
 
@@ -41,7 +41,7 @@ These rules **must always be followed** by anyone (human or AI agent) working on
 
 - Whenever documentation is **added, removed, or reorganized**, the corresponding **index**, **README**, and **START_HERE** files must be updated.
 - These files act as entry points and maps; they must reflect the current structure and links.
-- Apply this at the level where the change happened (e.g. under `docs/ace-system/` or under a service's `docs/`).
+- Apply this at the level where the change happened (e.g. under the central docs root or under a service's `docs/`).
 
 **Agents**: When creating, renaming, or deleting docs, update the relevant `index.md`, `README.md`, and `START_HERE.md` so that links and listed sections remain accurate.
 
@@ -71,7 +71,7 @@ These rules **must always be followed** by anyone (human or AI agent) working on
 - Only if it is **still unclear** after reading the relevant docs and code may the agent **ask the user** for clarification.
 - Guessing or making up patterns, APIs, or workflows is not allowed. Prefer reading first, then asking, over inventing.
 
-**Agents**: When something is ambiguous or unknown, search and read the project docs (e.g. `docs/ace-system/`, service `docs/`, `.cursor/rules/`) and the relevant application code. If after that you still do not know what or how to do it, ask the user. Do not invent solutions, naming, or behavior.
+**Agents**: When something is ambiguous or unknown, search and read the project docs (e.g. central docs: ace-manual `src/docs/` or equivalent; service `docs/`; `.cursor/rules/`) and the relevant application code. If after that you still do not know what or how to do it, ask the user. Do not invent solutions, naming, or behavior.
 
 ---
 

@@ -76,6 +76,3 @@ git clone https://github.com/ezops-br/ace-manual.git
 
 SSH alternative: replace `https://github.com/ezops-br/REPO` with `git@github.com:ezops-br/REPO.git` if you use SSH keys.
 
----
-
-*Last updated: March 2025*

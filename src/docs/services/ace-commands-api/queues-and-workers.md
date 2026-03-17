@@ -14,8 +14,8 @@ All queues are **FIFO**. URLs come from environment variables (with fallbacks in
 
 ## Main process listeners
 
-- **CommandsList**: Long-poll (WaitTimeSeconds 10), VisibilityTimeout 170 s, concurrency limit 5 (p-limit). Handler: `CommandsController.runQueueCommands`. On success, message is deleted; output is sent to CommandsOutputs with same correlation/deduplication IDs when possible.
-- **ResourceHealthChecks**: Same pattern; VisibilityTimeout 170 s; handler: `ResourceHealthController.processHealthCheckCommand`. Completely independent of the CommandsList listener. Results sent to ResourceHealthCheckResults.
+- **CommandsList**: Long-poll (WaitTimeSeconds from constructor; **1 s** in current index.js), VisibilityTimeout 170 s, concurrency limit 5 (p-limit in Queue.listenForMessages). Handler: `CommandsController.runQueueCommands`. On success, message is deleted; output is sent to CommandsOutputs with same correlation/deduplication IDs when possible.
+- **ResourceHealthChecks**: Same pattern (WaitTimeSeconds 1, VisibilityTimeout 170 s); handler: `ResourceHealthController.processHealthCheckCommand`. Completely independent of the CommandsList listener. Results sent to ResourceHealthCheckResults.
 
 Both listeners use **adaptive backoff**: when no messages are received for 10 minutes, backoff increases (up to 30 s); when messages are received, backoff resets to 1 s.
 
