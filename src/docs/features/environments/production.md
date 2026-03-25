@@ -54,7 +54,7 @@ kubectl get pods
 ## Rollback and monitoring
 
 - **Rollback**: Have a rollback plan before each production deploy (e.g. previous image tag, revert commit, or K8s rollback). Document in ace-infra or runbooks.
-- **Monitoring**: Use the cluster’s monitoring stack (e.g. CloudWatch, Prometheus, namespace **monitoring**) and set alerts for errors, latency, and availability. See ace-infra and ops docs.
+- **Monitoring**: Use the cluster’s monitoring stack (e.g. CloudWatch, Prometheus, namespace **monitoring**) and set alerts for errors, latency, and availability. For Prometheus/Grafana/Alertmanager (and Loki logs), see [../infrastructure/monitoring-stack.md](../infrastructure/monitoring-stack.md).
 
 ---
 

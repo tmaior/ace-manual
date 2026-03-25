@@ -28,7 +28,7 @@ Do not create ACE AWS or EKS resources outside the patterns and modules defined 
 | **demo-env/** | Terraform/config for demo environment (optional/secondary setup). |
 | **iam/** | IAM policy documents (e.g. Route53 policy for Jira integration). |
 | **local-env/** | Local development references (may be symlink or copy; main local setup is in **local-env** at repo root). |
-| **monitoring/** | Monitoring and analysis (Prometheus, Grafana, etc.). |
+| **monitoring/** | Monitoring and analysis (Prometheus, Grafana, etc.). See [monitoring-stack.md](./monitoring-stack.md). |
 | **bkp-terraform-library/** | Backup/legacy Terraform modules; prefer **terraform-library/** for new work. |
 
 ---

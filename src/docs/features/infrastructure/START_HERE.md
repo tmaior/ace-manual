@@ -36,6 +36,9 @@ Where to find RDS, DocumentDB, and Redis credentials (Terraform outputs, Secrets
 **[infrastructure-diagrams.md](./infrastructure-diagrams.md)**  
 Diagrams of infrastructure: VPC, public vs private subnets, what runs where (ALB, NAT, EKS, RDS, DocumentDB, Redis, EFS), request flow, and network layout. Mermaid diagrams included.
 
+**[monitoring-stack.md](./monitoring-stack.md)**  
+Where the ACE monitoring stack is documented (Prometheus/Grafana/Alertmanager + Loki/Promtail), and how to deploy and access it (via `ace-infra/monitoring/` scripts and guides).
+
 **[route53-dns.md](./route53-dns.md)**  
 Route53, DNS, and apontamentos: hosted zone, naming convention (e.g. <env>-<service>.ace.ezops.cloud), how records are created/updated, update-route53-demo.sh script, IAM policy for Jira integration, and how to create or update records manually.
 

@@ -33,6 +33,8 @@ Namespaces isolate workloads per environment or purpose. Use the **correct names
 | **cert-manager** | TLS certificate management. |
 | **amazon-cloudwatch** | CloudWatch agent, Fluent Bit (logging). |
 
+The `monitoring` namespace hosts the ACE observability stack (Prometheus/Grafana/Alertmanager + Loki/Promtail). For deploy/access and operational validation, see [monitoring-stack.md](./monitoring-stack.md).
+
 Other namespaces may exist (e.g. wiki-dev, wiki-stg, bmt-wiki-js, sandbox). Do not deploy ACE application pods to **default** unless documented. When adding a new environment, create the namespace (via Terraform or kubectl) and use it consistently in manifests and CI/CD.
 
 ---

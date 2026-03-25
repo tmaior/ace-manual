@@ -22,6 +22,7 @@ Use this directory when you need to add a new service to the cluster, create a n
 | [ace-infra-repository.md](./ace-infra-repository.md) | ace-infra repo structure, service folders, cluster, terraform-library, scripts, docs. |
 | [aws-resources.md](./aws-resources.md) | AWS region, EKS, ECR, VPC, RDS, DocumentDB, Redis, EFS, Secrets Manager pattern, tags. |
 | [kubernetes-and-deployment.md](./kubernetes-and-deployment.md) | EKS clusters and namespaces, ALB, manifest patterns, CI/CD (GitHub Actions, ECR, deploy). |
+| [monitoring-stack.md](./monitoring-stack.md) | ACE monitoring stack (Prometheus/Grafana/Alertmanager + Loki/Promtail), with deploy/access guidance. |
 | [terraform-modules.md](./terraform-modules.md) | Terraform modules (VPC, EKS, RDS, DocumentDB, EFS, Redis, eks-general-configs), workspaces, tfvars. |
 | [scripts-and-automation.md](./scripts-and-automation.md) | Scripts for SQS, Route53, DB setup, validation, cleanup; when and where to use them. |
 | [knowledge-base-and-resources.md](./knowledge-base-and-resources.md) | Knowledge Base (AWS Bedrock): S3, IAM, Bedrock KB/DataSource, S3 Vectors, DocsSync queue, docs-sync worker, sync flow, DB Gateway, webhook. |

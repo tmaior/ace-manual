@@ -11,4 +11,5 @@
 - [eks-access-and-iam.md](./eks-access-and-iam.md)
 - [databases-credentials-and-admin-tools.md](./databases-credentials-and-admin-tools.md)
 - [infrastructure-diagrams.md](./infrastructure-diagrams.md)
+- [monitoring-stack.md](./monitoring-stack.md)
 - [route53-dns.md](./route53-dns.md)
