@@ -20,6 +20,9 @@ planning-workspace/
 │   ├── README.md                      # Template for task documentation
 │   ├── objective.md                   # Template for objective definition
 │   ├── notes.md                       # Template for working notes
+│   ├── devlogs/                       # Development logs for tracking progress
+│   │   ├── README.md                  # Devlogs purpose and usage guide
+│   │   └── devlog-entry.md            # Template for new devlog entries
 │   └── assets/                        # Folder for any supporting assets
 ├── 01-project-name/                   # Example task folder (increment number prefix)
 │   ├── README.md

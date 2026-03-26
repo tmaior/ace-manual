@@ -244,4 +244,89 @@ The `00-default/` folder is a **TEMPLATE** and **MUST NOT** be modified.
 
 ---
 
+## 9. Rules for Development Logs (Devlogs)
+
+### Devlogs Purpose
+Devlogs (development logs) capture the journey of development - the reasoning, decisions, problems, and solutions. They document the "why" behind technical choices, complementing formal documentation that describes the final state.
+
+### Required Devlog Rules
+
+#### Rule: Agents MUST Create Devlog Entries Throughout Development
+- Devlogs are NOT optional - they are a required part of the documentation workflow
+- Every significant development activity should result in a devlog entry
+- Treat devlog entries as first-class documentation artifacts
+
+#### Rule: Document Features When Finished
+When a feature is completed:
+- Create a devlog entry documenting what was built
+- Explain the approach and implementation details
+- Note any interesting decisions made during implementation
+- Include any limitations or known issues
+
+#### Rule: Document Errors When Encountered
+When an error or bug is encountered:
+- Immediately create a devlog entry documenting the error
+- Include the exact error message and stack trace if available
+- Describe the circumstances that triggered the error
+- Note any relevant system state or inputs
+
+#### Rule: Document Solutions When Errors Are Fixed
+When an error is resolved:
+- Update the existing devlog entry (or create a new one)
+- Document the root cause of the error
+- Explain the solution applied
+- Include any lessons learned
+
+#### Rule: Document Complex Logic, Suggestions, and Solution Choices with Reasoning
+For any significant technical decision:
+- Document the problem or requirement being addressed
+- List the alternatives that were considered
+- Explain the trade-offs of each option
+- State the final choice and the reasoning behind it
+
+#### Rule: Devlogs Should Be Updated Constantly During Development
+- Update devlogs at each significant step
+- Don't wait until completion - log progress as it happens
+- Add entries for partial solutions, dead ends, or pivots
+- Capture both successes and failures
+
+### Devlog Entry Types
+
+| Type | When to Use | Content Focus |
+|------|-------------|----------------|
+| `feature` | Feature completed | What was built, how it works |
+| `fix` | Bug fixed | Problem, root cause, solution |
+| `error` | Error encountered | Error details, circumstances |
+| `solution` | Solution found | How the problem was solved |
+| `decision` | Decision made | Options, trade-offs, reasoning |
+| `other` | Miscellaneous | Other relevant information |
+
+### Devlog Entry Quality Standards
+
+**Must Include:**
+- Date and time
+- Entry type
+- Clear, descriptive title
+- Detailed description of what occurred
+- Technical details (code snippets, error messages)
+- Reasoning and explanation
+
+**Should Include:**
+- Related files and documents
+- Alternatives considered
+- Expected vs. actual outcomes
+- Action items or follow-ups
+
+### Quick Devlog Checklist
+
+When working on any task, verify devlog coverage:
+- [ ] Started work? Log the approach being taken
+- [ ] Made a decision? Log the options and reasoning
+- [ ] Encountered an error? Log the details immediately
+- [ ] Fixed an error? Log the solution and root cause
+- [ ] Completed a feature? Log what was done
+- [ ] Discovered something useful? Log it for future reference
+
+---
+
 *For questions or clarifications, refer to the workspace `README.md` or parent documentation.*
