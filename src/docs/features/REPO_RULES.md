@@ -1,6 +1,6 @@
 # Repository documentation structure: index, START_HERE, and README
 
-Across the ACE documentation structure (in ace-manual: `src/docs/` and its subdirectories; and optionally each service's `docs/`), **every directory** that holds documentation must contain three standard files: **index.md**, **START_HERE.md**, and **README.md**. This document explains what each file is for and how to maintain them.
+Across the ACE documentation structure (in ace-manual: `src/docs/features/` and its subdirectories; and optionally each service's `docs/`), **every directory** that holds documentation must contain three standard files: **index.md**, **START_HERE.md**, and **README.md**. This document explains what each file is for and how to maintain them.
 
 ---
 
@@ -64,7 +64,7 @@ In short: **new folder → create the three files; new/removed/moved doc (or sub
 
 ## Rules to follow
 
-1. **Documentation location**: All documentation files and folders **must** be created **inside `src/docs`**. Never create docs or doc directories outside `src/docs`; `src/docs` is the single root for all repository documentation.
+1. **Documentation location**: All documentation files and folders **must** be created **inside `src/docs/features`**. Never create docs or doc directories outside `src/docs/features`; `src/docs/features` is the single root for all repository documentation in ace-manual.
 2. **Every documentation directory** (e.g. rules/, architecture/, environments/, infrastructure/, services/, and any new subdirectory you create under the docs root) **must** contain **index.md**, **START_HERE.md**, and **README.md**. If you create a new folder, you **must** create these three files there.
 3. **Keep them in sync**: When you add, remove, or move a document (or subdirectory), you **must** update **index.md**, **START_HERE.md**, and **README.md** in the affected directory so that the list, descriptions, and overview stay correct. This is required by the [main rules](rules/main-rules.md).
 4. **Same names everywhere**: Use exactly **index.md**, **START_HERE.md**, and **README.md** (lowercase, with underscore in START_HERE) so that tooling and people can rely on the same names in every folder.
@@ -74,7 +74,7 @@ In short: **new folder → create the three files; new/removed/moved doc (or sub
 
 ## For AI agents
 
-- **Location**: Create all documentation (files and folders) **only under `src/docs`**. Never create doc directories or files outside `src/docs`.
+- **Location**: Create all documentation (files and folders) **only under `src/docs/features`**. Never create doc directories or files outside `src/docs/features`.
 - **New folder**: When you create a new documentation directory, you **must** create **index.md**, **START_HERE.md**, and **README.md** inside it. Do not create a doc folder without these three files.
 - **New, removed, or moved doc/subdirectory**: When you add, remove, or rename a document or subdirectory, you **must** update **index.md**, **START_HERE.md**, and **README.md** in the directory where the change happened. Do not leave them outdated.
 - **Summary**: New folder → create the three files. Any change to the contents of a folder (add/remove/move doc or subfolder) → edit the three files in that folder.

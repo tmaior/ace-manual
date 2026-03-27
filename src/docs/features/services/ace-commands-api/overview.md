@@ -2,7 +2,7 @@
 
 ## What it is
 
-**ace-commands-api** is a Node.js microservice in the ACE (Automation, Control & Enablement) platform. It securely executes shell commands in controlled environments, either triggered by Slack (via SQS) or by internal systems (resource health checks, docs-sync). It does **not** expose a public HTTP API for arbitrary command execution by default; execution is driven by queues and optional HTTP when explicitly enabled.
+**ace-commands-api** is a Node.js microservice in the ACE (Automated Cloud Engineer) platform. It securely executes shell commands in controlled environments, either triggered by Slack (via SQS) or by internal systems (resource health checks, docs-sync). It does **not** expose a public HTTP API for arbitrary command execution by default; execution is driven by queues and optional HTTP when explicitly enabled.
 
 ## Purpose
 

@@ -10,6 +10,8 @@ This directory is the **central documentation hub** for the ACE system. It is in
 
 ## Directory Layout
 
+In **ace-manual**, the following tree lives under **`src/docs/features/`** (repository path: `ace-manual/src/docs/features/`).
+
 ```
 docs/
 ├── index.md          # This index and quick links
@@ -35,7 +37,7 @@ Every documentation directory (including subdirectories) should contain **index.
 
 ## Relation to other docs
 
-- **This docs root** (in ace-manual: `src/docs/`): Cross-repo, system-wide documentation. Top-level sections: rules/, architecture/, environments/, infrastructure/, services/.
+- **This docs root** (in ace-manual: `src/docs/features/`): Cross-repo, system-wide documentation. Top-level sections: rules/, architecture/, environments/, infrastructure/, services/.
 - **`<service>/docs/`** (e.g. `ace-db-gateway/docs/`): Service-specific API docs, setup, and guides.
 
 Keep both in sync: when you change behavior or APIs, update the relevant service doc and, if it affects the whole system, the appropriate file under this docs root.

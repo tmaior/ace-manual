@@ -60,7 +60,7 @@ Each markdown file in this directory describes one area of rules. All of them ar
 
 ## Relationship with other rule sources
 
-- **`.cursor/rules/`** (e.g. `ace-project-01.mdc`, `ace-core-rules.mdc`): These files are applied automatically in the Cursor IDE and summarize structure, gitflow, and critical patterns. The **detailed** and **narrative** version of the rules lives here (e.g. in ace-manual: `src/docs/rules/`). Keep both aligned: when you change a process, update the rule file in `rules/` and, if needed, the corresponding `.cursor/rules` file.
+- **`.cursor/rules/`** (e.g. `ace-project-01.mdc`, `ace-core-rules.mdc`): These files are applied automatically in the Cursor IDE and summarize structure, gitflow, and critical patterns. The **detailed** and **narrative** version of the rules lives here (e.g. in ace-manual: `src/docs/features/rules/`). Keep both aligned: when you change a process, update the rule file in `rules/` and, if needed, the corresponding `.cursor/rules` file.
 - **Service `docs/`** (e.g. `ace-db-gateway/docs/`): Each service can have its own rules and conventions (API style, folder layout, repo-specific workflows). This `rules/` directory describes **cross-repo** and **project-wide** rules. Service-level rules must not contradict these; they add or specialize.
 
 ---

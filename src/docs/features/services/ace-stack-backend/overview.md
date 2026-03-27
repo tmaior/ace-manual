@@ -2,7 +2,7 @@
 
 ## What it is
 
-**ace-stack-backend** is the main NestJS API for the ACE (Automation, Control & Enablement) platform. It handles authentication (JWT and OAuth with Google and GitHub), business logic, and orchestration. The frontend and other clients call this service; the backend in turn calls **ace-db-gateway** for most data operations and optionally integrates with **ace-commands-api**, LLM services, AWS (Secrets Manager, SES, S3, Bedrock), and Slack.
+**ace-stack-backend** is the main NestJS API for the ACE (Automated Cloud Engineer) platform. It handles authentication (JWT and OAuth with Google and GitHub), business logic, and orchestration. The frontend and other clients call this service; the backend in turn calls **ace-db-gateway** for most data operations and optionally integrates with **ace-commands-api**, LLM services, AWS (Secrets Manager, SES, S3, Bedrock), and Slack.
 
 ## Purpose
 

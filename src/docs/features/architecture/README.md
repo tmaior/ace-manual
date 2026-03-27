@@ -30,7 +30,7 @@ This directory holds documentation for:
 
 ## Relationship with other docs
 
-- **Parent**: [src/docs](../README.md) is the root of ACE documentation; architecture is one section.
+- **Parent**: The documentation hub is [../README.md](../README.md) (on disk: `ace-manual/src/docs/features/`); architecture is one section.
 - **Rules**: For Gitflow, development, PR, documentation, and security rules, see [../rules/](../rules/).
 - **Environments**: For local setup and deployment targets, see [../environments/](../environments/).
 - **Services**: For per-service APIs and setup, see [../services/](../services/).

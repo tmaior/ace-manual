@@ -2,7 +2,7 @@
 
 ## What it is
 
-**ace-infra** is the infrastructure-as-code repository for the ACE (Automation, Control & Enablement) platform. It holds Terraform (VPC, EKS, RDS, DocumentDB, EFS, Redis), Kubernetes manifests per service (Deployment, Service, Ingress), Dockerfiles used by CI/CD, Helm charts for some components, IAM policies, and automation scripts. All ACE AWS and EKS resources follow the patterns and modules defined here.
+**ace-infra** is the infrastructure-as-code repository for the ACE (Automated Cloud Engineer) platform. It holds Terraform (VPC, EKS, RDS, DocumentDB, EFS, Redis), Kubernetes manifests per service (Deployment, Service, Ingress), Dockerfiles used by CI/CD, Helm charts for some components, IAM policies, and automation scripts. All ACE AWS and EKS resources follow the patterns and modules defined here.
 
 ## Purpose
 

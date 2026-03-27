@@ -33,7 +33,7 @@ Rules for creating, updating, and organizing documentation across the ACE system
 
 ## 3. Where to document
 
-- **Central documentation** – Central docs root (in ace-manual: `src/docs/`; elsewhere may be `docs/ace-system/` or similar) (or the project’s central docs root). Use for:
+- **Central documentation** – Central docs root (in ace-manual: `src/docs/features/`; elsewhere may be `docs/ace-system/` or similar) (or the project’s central docs root). Use for:
   - System-wide rules, architecture, environments, and cross-service topics.
   - Place files in the correct subfolder: `rules/`, `architecture/`, `environments/`, `services/` (see [main rules](./main-rules.md)).
 - **Service-level documentation** – Each microservice has a **`docs/`** directory (e.g. `ace-db-gateway/docs/`, `ace-stack-backend/docs/`). Use for:
@@ -115,7 +115,7 @@ Rules for creating, updating, and organizing documentation across the ACE system
 |-------|------|
 | Scope | **Document everything** that is done (features, fixes, behavior, APIs, architecture, config). |
 | When | With **every** relevant code or config change; in the **same PR**. |
-| Where | Central docs root (e.g. `src/docs/` in ace-manual) for system-wide; service `docs/` for that app; choose the most relevant place. |
+| Where | Central docs root (e.g. `src/docs/features/` in ace-manual) for system-wide; service `docs/` for that app; choose the most relevant place. |
 | Structure | Correct folder; **kebab-case** filenames; update **index**, **README**, **START_HERE**. |
 | Types | Setup, architecture, API, debugging, development; examples must be **functional and tested**. |
 | Quality | English for technical content; short sections; working examples; no outdated snippets. |

@@ -1,6 +1,6 @@
 # ace-dashboard-frontend
 
-React/Vite frontend for the ACE (Automation, Control & Enablement) system.
+React/Vite frontend for the ACE (Automated Cloud Engineer) system.
 
 ## Purpose
 

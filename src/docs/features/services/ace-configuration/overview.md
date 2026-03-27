@@ -2,7 +2,7 @@
 
 ## What it is
 
-**ace-configuration** is the configuration and schema management service for the ACE (Automation, Control & Enablement) platform. It owns the PostgreSQL schema and Sequelize models for core ACE data (clients, users, projects, channels, configurations, monitored resources, schedulers, etc.). It does **not** act as an HTTP API gateway for configuration data: the backend and other services read and write configuration data via **ace-db-gateway** (or by importing models and connecting to the same database). ace-configuration’s main runtime roles are **running migrations and seeders** and, when run as a server, exposing a **health** check endpoint.
+**ace-configuration** is the configuration and schema management service for the ACE (Automated Cloud Engineer) platform. It owns the PostgreSQL schema and Sequelize models for core ACE data (clients, users, projects, channels, configurations, monitored resources, schedulers, etc.). It does **not** act as an HTTP API gateway for configuration data: the backend and other services read and write configuration data via **ace-db-gateway** (or by importing models and connecting to the same database). ace-configuration’s main runtime roles are **running migrations and seeders** and, when run as a server, exposing a **health** check endpoint.
 
 ## Purpose
 

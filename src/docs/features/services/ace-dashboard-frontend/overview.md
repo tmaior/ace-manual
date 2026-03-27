@@ -2,7 +2,7 @@
 
 ## What it is
 
-**ace-dashboard-frontend** is the user-facing React/Vite single-page application (SPA) for the ACE (Automation, Control & Enablement) system. It provides the dashboard and management UI through which users and admins interact with the platform. All data and business logic are provided by **ace-stack-backend**; the frontend consumes backend APIs using JWT authentication and does not connect directly to databases or other ACE services.
+**ace-dashboard-frontend** is the user-facing React/Vite single-page application (SPA) for the ACE (Automated Cloud Engineer) system. It provides the dashboard and management UI through which users and admins interact with the platform. All data and business logic are provided by **ace-stack-backend**; the frontend consumes backend APIs using JWT authentication and does not connect directly to databases or other ACE services.
 
 ## Purpose
 

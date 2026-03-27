@@ -28,5 +28,5 @@ Contents of this directory (links only). For descriptions and how to use, see [S
 
 ## Repository-level docs
 
-In this repository (ace-manual), the documentation root is **`src/docs`**. Individual services may have their own `docs/` folders (e.g. `ace-db-gateway/docs/`, `ace-stack-backend/docs/`). This directory is the **cross-repository** hub for system-wide documentation.
+In this repository (ace-manual), the documentation root is **`src/docs/features/`**. Individual services may have their own `docs/` folders (e.g. `ace-db-gateway/docs/`, `ace-stack-backend/docs/`). This directory is the **cross-repository** hub for system-wide documentation.
 

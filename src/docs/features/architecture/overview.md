@@ -6,7 +6,7 @@ This document is the single source of truth for **what ACE is** and **how it is 
 
 ## What is ACE?
 
-**ACE** (Automation, Control & Enablement) is a **distributed system of microservices** that provides:
+**ACE** (Automated Cloud Engineer) is a **distributed system of microservices** that provides:
 
 - A **dashboard** (React/Vite frontend) for management and visibility
 - A **backend** (NestJS) for business logic and authentication (JWT)

@@ -111,7 +111,7 @@ kubectl create namespace qa
 
 ## Step 10 — Create the environment document
 
-- **File**: Create **`<short>.md`** in `ace-manual/src/docs/environments/` (e.g. `qa.md`), following the structure of [development.md](./development.md), [staging.md](./staging.md), or [production.md](./production.md).
+- **File**: Create **`<short>.md`** in `ace-manual/src/docs/features/environments/` (e.g. `qa.md`), following the structure of [development.md](./development.md), [staging.md](./staging.md), or [production.md](./production.md).
 - **Sections to include**:
   - **Purpose** — one short paragraph (from Step 1).
   - **Cluster and namespace** — table: Cluster, Region, Namespace(s); example `kubectl` context and commands.

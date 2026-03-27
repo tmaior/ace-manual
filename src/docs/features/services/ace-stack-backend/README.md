@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This folder holds the **central documentation** for **ace-stack-backend**, the main NestJS API of the ACE platform. The content is derived from the application code and follows the ace-manual structure (index, START_HERE, README in every directory; docs only under `src/docs`).
+This folder holds the **central documentation** for **ace-stack-backend**, the main NestJS API of the ACE platform. The content is derived from the application code and follows the ace-manual structure (index, START_HERE, README in every directory; docs only under `src/docs/features`).
 
 ## What you will find
 

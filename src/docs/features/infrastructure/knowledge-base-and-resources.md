@@ -14,9 +14,11 @@ The Knowledge Base is an **AWS Bedrock**–based feature that stores project doc
 
 1. **Configuration**: User sets `docsRepo` (and optionally `docsRepoBranch`) for a project in the dashboard. Backend may trigger **ensure KB + enqueue sync** (with debounce).
 2. **Provisioning** (ace-stack-backend): If the project has no KB yet, the backend creates (or reuses) in AWS: S3 docs bucket, IAM role for Bedrock, optional S3 Vector bucket and index, Bedrock Knowledge Base, Bedrock Data Source linked to the S3 docs bucket. It then persists `knowledgeBaseId` and `dataSourceId` in the DB via **ace-db-gateway** (`PUT /api/projects/:id/knowledge-base`).
-3. **Enqueue sync**: Backend builds a script (clone repo, `aws s3 sync` of `*.md` from `src/docs` to the bucket, start Bedrock ingestion job, poll until COMPLETE/FAILED or timeout). It sends a message to the **DocsSync SQS FIFO queue** with the script and `project_id`. Backend also ensures a **GitHub webhook** on the docs repo for push events → `POST /api/webhooks/docs/:projectId`.
+3. **Enqueue sync**: Backend builds a script (clone repo, `aws s3 sync` of `*.md` from **`$WORKDIR/src/docs`** in the cloned repository to the bucket, start Bedrock ingestion job, poll until COMPLETE/FAILED or timeout). The sync path is **hardcoded** in **ace-stack-backend** (`KnowledgeBaseSyncService`). It sends a message to the **DocsSync SQS FIFO queue** with the script and `project_id`. Backend also ensures a **GitHub webhook** on the docs repo for push events → `POST /api/webhooks/docs/:projectId`.
 4. **Worker** (ace-commands-api): The **docs-sync worker** (separate process) consumes the DocsSync queue, runs the script (no Slack output), and exits. The script uses GitHub token, repo, branch, bucket name, KB ID, Data Source ID, and AWS region (injected by backend).
 5. **Manual sync**: Admin can call **POST /api/admin/knowledge-base/sync** with `{ projectId }` to enqueue a sync without changing config.
+
+**ace-manual layout**: The ACE system documentation repository **ace-manual** stores markdown under **`src/docs/features/`**, not under `src/docs/`. The docs-sync script above uses **`src/docs`** until the backend supports a configurable path; if ace-manual is the configured docs repo for a Knowledge Base, align repository layout with that script (or change the backend) so sync finds the `.md` files.
 
 ---
 
@@ -36,7 +38,7 @@ The Knowledge Base is an **AWS Bedrock**–based feature that stores project doc
 - **Creation**: By **ace-stack-backend** (KnowledgeBaseProvisioningService), not by Terraform. Idempotent: if bucket exists, it is reused.
 - **Naming pattern**: `<prefix>-kb`. The prefix is derived from client name and project name (sanitized, lowercased, hyphenated); if none, `ace-kb`. Example pattern: `clientname-projectname-kb`.
 - **Settings**: Versioning enabled; public access blocked (BlockPublicAcls, IgnorePublicAcls, BlockPublicPolicy, RestrictPublicBuckets). Region: same as backend (`AWS_REGION`, default us-east-1).
-- **Sync**: Worker runs `aws s3 sync` from cloned repo `src/docs` with `--include "*.md"` (and optionally other patterns) into this bucket.
+- **Sync**: Worker runs `aws s3 sync` from **`$WORKDIR/src/docs`** in the clone (same hardcoded path as in `KnowledgeBaseSyncService`) with `--include "*.md"` (and optionally other patterns) into this bucket.
 
 ### AWS Bedrock – Knowledge Base and Data Source
 

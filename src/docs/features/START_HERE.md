@@ -1,10 +1,10 @@
 # Start Here - ACE Documentation
 
-Welcome to the ACE (Automation, Control & Enablement) system documentation. Use this page as your entry point.
+Welcome to the ACE (Automated Cloud Engineer) system documentation. Use this page as your entry point.
 
 ## What is ACE?
 
-ACE is a distributed system of microservices that provides:
+**ACE** (Automated Cloud Engineer) is a distributed system of microservices that provides:
 
 - **Dashboard** (React/Vite frontend) for management and visibility
 - **Backend** (NestJS) for business logic and authentication (JWT)
@@ -58,6 +58,6 @@ ACE is a distributed system of microservices that provides:
 - **Mandatory rules**: Read [rules/main-rules.md](./rules/main-rules.md) first. All code and technical documentation must be in English; document every change; keep index, README, and START_HERE in sync when adding, removing, or moving docs; do not invent—read docs and code, then ask if unclear.
 - **Local environment**: To bring up a local ACE stack (same as local-env), follow [environments/local-setup/](./environments/local-setup/) in order (prerequisites → repos → config → env vars → startup → health checks). Do not skip steps or invent paths or ports.
 - **Doc structure**: Every documentation directory must have **index.md**, **START_HERE.md**, and **README.md**; when creating a new folder, add all three; when changing contents, update the three in that folder. See [REPO_RULES.md](./REPO_RULES.md).
-- **Where to document**: Central docs root (here: `src/docs/`) for system-wide topics; service `docs/` for that app. See [rules/documentation-rules.md](./rules/documentation-rules.md).
+- **Where to document**: Central docs root (here: `src/docs/features/`) for system-wide topics; service `docs/` for that app. See [rules/documentation-rules.md](./rules/documentation-rules.md).
 - **Technical depth**: Service docs under [services/](./services/) include overviews, dependencies, environment variables, APIs/routes, build/deploy, and queues/workers where applicable. Use them to understand behavior before changing code.
 
