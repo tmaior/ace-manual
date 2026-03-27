@@ -24,7 +24,7 @@ This directory holds **one subfolder per ACE app**, each with a short overview a
 | ace-ops-bot | Operations bot | [ace-ops-bot/](./ace-ops-bot/) |
 | ace-commands-api | Commands API | [ace-commands-api/](./ace-commands-api/) |
 | ace-ops-scheduler | Operations scheduler | [ace-ops-scheduler/](./ace-ops-scheduler/) |
-| ace-jira-integration | Jira Connect (webhooks, payloads) | [ace-jira-integration/](./ace-jira-integration/) |
+| ace-jira-integration | Jira Connect (webhooks, payloads); **required** for full Jira→ACE integration | [ace-jira-integration/](./ace-jira-integration/) |
 | ace-infra | Terraform, K8s, AWS | [ace-infra/](./ace-infra/) |
 
 Local development (docker-compose, configs) is documented in [environments/local.md](../environments/local.md), not as a service subfolder.

@@ -31,7 +31,8 @@ This document describes **where environment variables and secrets come from** in
 
 | Var (example) | Purpose | Local | EKS |
 |---------------|---------|-------|-----|
-| `ACE_GATEWAY_URL` / `DB_GATEWAY_URL` | DB Gateway base URL | e.g. `http://localhost:4xxx` | From secrets |
+| **`ACE_GATEWAY_URL`** (primary in ace-stack-backend) | DB Gateway base URL | e.g. `http://localhost:4xxx` | From secrets |
+| `DB_GATEWAY_URL` | Legacy/alternate name in some services or compose | Same as gateway URL | Prefer **`ACE_GATEWAY_URL`** for backend consistency |
 | `REDIS_HOST`, `REDIS_PORT` | Redis for omnichannel, cache | e.g. `localhost`, `6379` | From secrets |
 | JWT secret / auth vars | Token signing and validation | .env | From secrets |
 | DB connection (if any direct) | Backend DB; often via DB Gateway only | .env | From secrets |

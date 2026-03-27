@@ -10,16 +10,16 @@ This directory contains the system architecture documentation for ACE. Below is 
 Overview of this directory: what it is for, what documents it contains, and how to use it. Links to parent docs and to the main entry points (overview, service catalog, data flow).
 
 **[overview.md](./overview.md)**  
-Single source of truth for what ACE is and how it is structured: high-level diagram, list of services with one-line purpose, and main boundaries (frontend, backend, db-gateway, bots, infra). Start here for the big picture.
+Single source of truth for what ACE is and how it is structured: high-level diagram, list of services with one-line purpose, and main boundaries (frontend, backend, db-gateway, bots, Jira integration, infra). Start here for the big picture.
 
 **[service-catalog.md](./service-catalog.md)**  
 Catalog of every ACE service: name, repository, tech stack, main responsibility, default port, key env vars, and dependencies. Use it to know which service to touch and how it fits in.
 
 **[data-flow.md](./data-flow.md)**  
-How data and requests move through the system: auth flow (login, JWT), request flows (user → frontend → backend → db-gateway → DB), sequence diagrams, and error/timeout handling.
+How data and requests move through the system: auth flow (login, JWT), request flows (user → frontend → backend → db-gateway → DB), Jira webhooks → jira-integration → scheduler, sequence diagrams, and error/timeout handling.
 
 **[integrations.md](./integrations.md)**  
-How services integrate: base URLs (env-based), how the backend calls db-gateway and other services, JWT propagation, API contracts, and idempotency/retries where relevant.
+How services integrate: base URLs (env-based), how the backend calls db-gateway (including configuration data paths), other internal services, JWT propagation, REST vs queues where relevant, API contracts, and idempotency/retries.
 
 **[deployment.md](./deployment.md)**  
 Where and how ACE runs: local (docker-compose), staging, production, Kubernetes/EKS namespaces, AWS (region, accounts, main services), and links to infra and environment docs.

@@ -1,6 +1,6 @@
 # ace-jira-integration
 
-Node.js Atlassian Connect app for Jira. It runs as an Express server using `@atlassian/atlassian-connect-express`, receives Jira webhooks (issue and comment events), resolves ACE project links via **ace-db-gateway**, and forwards payloads to **ace-ops-scheduler** for the omnichannel/LLM pipeline. It does not expose a general-purpose REST API; its main surface is the Connect descriptor and webhook endpoints.
+Node.js Atlassian Connect app for Jira. **ACE depends on this service** for Jira-initiated workflows: issue and comment events reach ACE through this app. It runs as an Express server using `@atlassian/atlassian-connect-express`, receives Jira webhooks, resolves ACE project links via **ace-db-gateway**, and forwards payloads to **ace-ops-scheduler** for the omnichannel/LLM pipeline. It does not expose a general-purpose REST API; its main surface is the Connect descriptor and webhook endpoints.
 
 ## Purpose
 

@@ -15,9 +15,10 @@ Required sibling repos (relative to `local-env`):
 
 - ace-configuration, ace-db-gateway, ace-stack-backend, ace-dashboard-frontend  
 - ace-slackbot, ace-ops-bot, ace-commands-api, ace-ops-scheduler  
+- **ace-jira-integration** (clone at the same parent level as other ACE repos; **required** for Jira→ACE webhooks and omnichannel payloads in real environments; local Compose may mount or reference it per `docker-compose.yaml`)  
 - ace-infra (for Dockerfiles and commands-api build)  
 - ezrael-bot-llm (for LLM service build)  
-- **Jira integration**: app in `local-env/jira-app/meu-app-connect` (ACE–Jira feature); nginx and letsencrypt in local-env for HTTPS.
+- **Jira local app**: `local-env/jira-app/meu-app-connect` plus nginx and letsencrypt in local-env for HTTPS (see Compose profiles, e.g. **jira**).
 - Optional: ace-sec-bot; litellm-config.yaml (for litellm service)
 
 ---

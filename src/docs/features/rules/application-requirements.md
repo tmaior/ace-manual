@@ -68,7 +68,7 @@ Details for specific topics (e.g. PR process, infrastructure tags, security) are
 
 ### 4.1 URLs and base URLs
 
-- **All base URLs and service endpoints** must come from **environment variables**. **Never hardcode** full URLs or hosts in code or config that can differ per environment (e.g. `VITE_API_URL`, `DB_GATEWAY_URL`, `REDIS_HOST`). See [standardization-rules](./standardization-rules.md) and [integrations](../architecture/integrations.md).
+- **All base URLs and service endpoints** must come from **environment variables**. **Never hardcode** full URLs or hosts in code or config that can differ per environment (e.g. `VITE_API_URL`, **`ACE_GATEWAY_URL`** for ace-stack-backend → db-gateway, `REDIS_HOST`). See [standardization-rules](./standardization-rules.md) and [integrations](../architecture/integrations.md).
 - **No global /api prefix**: The project does not mandate a single `/api` prefix for all routes. Paths are defined per controller or module in each service.
 - **REST**: Inter-service APIs are REST. Use consistent HTTP methods and status codes. Document endpoints in the service `docs/`.
 

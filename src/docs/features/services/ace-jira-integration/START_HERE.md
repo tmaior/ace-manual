@@ -1,6 +1,6 @@
 # Start Here – ace-jira-integration
 
-**ace-jira-integration** is the ACE Atlassian Connect app for Jira. It receives Jira webhooks (issue_created, issue_updated, issue_deleted, comment_created), resolves ACE project links via ace-db-gateway, and forwards payloads to ace-ops-scheduler for the omnichannel pipeline.
+**ace-jira-integration** is the ACE Atlassian Connect app for Jira. The platform **depends on it** for Jira-driven capabilities. It receives Jira webhooks (issue_created, issue_updated, issue_deleted, comment_created), resolves ACE project links via ace-db-gateway, and forwards payloads to ace-ops-scheduler for the omnichannel pipeline.
 
 ## Contents
 

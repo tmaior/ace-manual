@@ -7,7 +7,7 @@ This document describes **how data and requests move** through the ACE system: a
 ## Authentication Flow
 
 1. **Login**: User submits credentials to the **frontend**, which sends them to **ace-stack-backend** (e.g. `/auth/login` or equivalent).
-2. **Backend** validates credentials (e.g. against DB or identity provider) and issues a **JWT**.
+2. **Backend** validates credentials (delegating to **ace-db-gateway** for local/email login and identity checks as implemented) and issues a **JWT** to the client.
 3. **Frontend** stores the JWT (e.g. in memory or secure storage) and sends it on subsequent requests (e.g. `Authorization: Bearer <token>`).
 4. **Backend** and other protected services (e.g. **ace-db-gateway**) validate the JWT on each request. Invalid or expired tokens result in 401; missing token on a protected route also results in 401.
 
@@ -29,8 +29,15 @@ All service-to-service URLs must come from **environment variables**; never hard
 
 ### Backend → Other Internal Services
 
-- Backend may call **ace-configuration**, **ace-commands-api**, or other internal APIs when needed. Same rules: env-based URLs, JWT or service auth as defined per service.
+- Backend uses **ace-db-gateway** for persisted entities (users, projects, configurations, knowledge base metadata, etc.). It does **not** call **ace-configuration** over HTTP for that data—**ace-configuration** owns migrations/models used across services.
+- Backend may call **ace-commands-api** or other internal HTTP APIs when needed. Same rules: env-based URLs, JWT or service auth as defined per service.
 - Document any new internal call in the service’s docs and in [integrations.md](./integrations.md).
+
+### Jira → ACE (issue and comment events)
+
+1. **Jira** invokes **ace-jira-integration** webhook routes (Atlassian Connect JWT).
+2. The app resolves **ACE project ↔ Jira project** via **ace-db-gateway** (`GET /api/project-jira-links`).
+3. When linked, it **POST**s the payload to **ace-ops-scheduler** (`/api/payloads`) for downstream processing (omnichannel / LLM pipeline).
 
 ### Bots (Slack)
 
@@ -46,6 +53,7 @@ See [diagrams.md](./diagrams.md) for Mermaid sequence diagrams. In text:
 - **Login**: User → Frontend → Backend → (validate) → JWT → Frontend.
 - **Authenticated request**: User → Frontend (JWT) → Backend (validate JWT) → DB Gateway (validate JWT) → DB → response back along the chain.
 - **Bot command**: Slack → Bot → Backend or Commands API (auth) → response → Bot → Slack.
+- **Jira event (linked project)**: Jira → ace-jira-integration → DB Gateway (link lookup) → ace-ops-scheduler → (pipeline).
 
 ---
 

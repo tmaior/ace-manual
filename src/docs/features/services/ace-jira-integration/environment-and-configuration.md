@@ -8,13 +8,15 @@
 | **DATABASE_URL** | PostgreSQL connection string for atlassian-connect-express store (host client data). Used when NODE_ENV=production and config.json production.store has `url: "$DATABASE_URL"`. |
 | **NODE_ENV** | Set to `production` in deployed environments. Enables production config (port, store, whitelist) and disables test bypass routes. |
 
-For ACE integration (optional but needed for forwarding):
+### Required for Jira → ACE forwarding
+
+ACE **depends on this service** for Jira-driven behavior. In **dev/stg/prod** (and local full-stack when testing Jira), the following must be set in addition to **DATABASE_URL**, **NODE_ENV**, and **PORT**. If any are missing, webhooks may still return 200 to Jira but **will not forward** payloads into ACE—treat that as misconfiguration.
 
 | Variable | Purpose |
 |----------|---------|
 | **ACE_DB_GATEWAY_ENDPOINT** | Base URL of ace-db-gateway (e.g. `http://ace-db-gateway-service`). Used for GET /api/project-jira-links. |
 | **ACE_DB_GATEWAY_TOKEN** | Bearer token for ace-db-gateway. Sent as `Authorization: Bearer ...`. |
-| **OPS_SCHEDULER_URL** | Base URL of ace-ops-scheduler. Used for POST /api/payloads. If unset, webhooks still respond 200 but do not forward. |
+| **OPS_SCHEDULER_URL** | Base URL of ace-ops-scheduler. Used for POST /api/payloads. |
 
 ## Descriptor (multi-env)
 
@@ -54,4 +56,4 @@ In ace-infra, secrets are stored in AWS Secrets Manager and mounted as Kubernete
 - **ace/stg/jira-integration-secrets**
 - **ace/prod/jira-integration-secrets**
 
-Deployment uses `envFrom: secretRef: jira-integration-secrets`. Required: `DATABASE_URL`. Optional: `ACE_DB_GATEWAY_ENDPOINT`, `ACE_DB_GATEWAY_TOKEN`, `OPS_SCHEDULER_URL`, `APP_URL`, `ACE_USER`. See [build-deploy-and-cicd.md](./build-deploy-and-cicd.md) and ace-infra `ace-jira-integration/README.md`.
+Deployment uses `envFrom: secretRef: jira-integration-secrets`. **Required** for a working ACE Jira path: `DATABASE_URL`, `ACE_DB_GATEWAY_ENDPOINT`, `ACE_DB_GATEWAY_TOKEN`, `OPS_SCHEDULER_URL`, and `APP_URL` (Jira must reach the app). **Optional**: `ACE_USER` (assignee filter on `issue_updated`). See [build-deploy-and-cicd.md](./build-deploy-and-cicd.md) and ace-infra `ace-jira-integration/README.md`.
