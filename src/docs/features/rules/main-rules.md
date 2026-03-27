@@ -75,6 +75,14 @@ These rules **must always be followed** by anyone (human or AI agent) working on
 
 ---
 
+## 8. AI agents implementing ACE in sandboxes
+
+Agents that **edit ACE repositories** from **ephemeral or automated environments** (e.g. **Daytona**) **must** follow **[ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md)** in addition to these main rules. It mandates: **feature branches** and **regular `git push`** (so work is not lost when the session ends), **checking and using project secrets** for GitHub/AWS before asking unnecessary questions, **running local-env / smoke checks** before treating work as complete, sharing **reachable URLs**, and opening a **PR after user confirmation**.
+
+**Agents**: Read `ai-agent-ace-workflow.md` at the start of any **implementation** task on ACE codebases when you are not working on a long-lived local machine with persistent git state.
+
+---
+
 ## Summary for AI agents
 
 | Rule | Short reminder |
@@ -86,3 +94,4 @@ These rules **must always be followed** by anyone (human or AI agent) working on
 | 5    | Respect existing standardizations. |
 | 6    | Always read and follow the rules and relevant docs before acting. |
 | 7    | Do not invent; read docs and code until you understand; if still unclear, ask the user. |
+| 8    | In sandboxes: follow [ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md) (push, secrets, test, URLs, PR). |

@@ -14,14 +14,16 @@ Rules for implementing and testing code changes across the ACE system. These rul
 
 ---
 
-## 2. Local testing before commit and push
+## 2. Local testing and readiness for PR
 
-- After development is finished, the **entire system** must be **tested locally** before any commit or push.
+- After implementation, the **entire system** (or the minimal set needed for the change) must be **tested locally** before the work is considered **complete** or a **PR** is opened.
 - **Test mix**: Use the **code from the feature branches** you changed, together with the **code from the `development` branches** of **all other apps** that were not modified.
 - **Goal**: Ensure that everything works and that services **communicate correctly** with each other (e.g. frontend ↔ backend ↔ db-gateway, bots, etc.).
-- Only after confirming that the integrated scenario is correct may you **commit** and **push** the feature branch(es).
+- Only after confirming that the integrated scenario is correct may you treat the change as **ready for review** and open a **PR**. Use **`git push`** on the feature branch so the remote has your commits; in **ephemeral sandboxes**, push **regularly** during development (see [ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md)), not only at the last second.
 
-**Agents**: When development is complete, run the full stack locally (e.g. via docker-compose or per-service runbooks), using feature-branch code for changed services and development-branch code for unchanged ones. Do not commit or push until this integration test passes.
+**Agents**: When development is complete, run the full stack locally (e.g. via docker-compose or per-service runbooks), using feature-branch code for changed services and development-branch code for unchanged ones. Do **not** treat work as **finished** or open a **PR** until this integration testing passes.
+
+**Ephemeral sandboxes (e.g. Daytona)**: Session timeouts can **destroy local-only commits**. Follow [ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md): **`git push`** the feature branch **regularly** after coherent commits so work stays visible and recoverable, while still running **integration / smoke checks** before you declare the task complete and before opening a PR.
 
 ---
 

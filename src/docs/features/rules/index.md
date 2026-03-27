@@ -2,6 +2,7 @@
 
 - [README.md](./README.md)
 - [main-rules.md](./main-rules.md)
+- [ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md)
 - [application-requirements.md](./application-requirements.md)
 - [pr-rules.md](./pr-rules.md)
 - [development-rules.md](./development-rules.md)

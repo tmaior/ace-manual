@@ -2,7 +2,7 @@
 
 Rules for security across the ACE system: authentication, validation, secrets, error handling, and bot protection. These rules apply to all services and must be followed when adding or changing code, APIs, or configuration.
 
-See also: [standardization-rules](./standardization-rules.md) (validation, JWT, secrets summary), [infrastructure-rules](./infrastructure-rules.md) (secrets storage, GitHub Environments).
+See also: [standardization-rules](./standardization-rules.md) (validation, JWT, secrets summary), [infrastructure-rules](./infrastructure-rules.md) (secrets storage, GitHub Environments), [ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md) (use workspace/project secrets for GitHub/AWS in sandboxes—never print them).
 
 ---
 
@@ -32,7 +32,7 @@ See also: [standardization-rules](./standardization-rules.md) (validation, JWT, 
 - **Runtime secrets** for applications: use **environment variables** or a secrets manager (e.g. AWS Secrets Manager). Path pattern for app env vars: `ace/<env>/<service>-secrets`. See [infrastructure-rules](./infrastructure-rules.md).
 - **CI/CD secrets** (e.g. deploy credentials, GitHub tokens): use **GitHub Environments** and reference them in workflows. Do not store production secrets in repository variables or in workflow file content.
 
-**Agents**: When a feature needs a new secret or credential, document the required key and where it is stored (Secrets Manager path or GitHub Environment). Do not add code that reads secrets from the repo or from hardcoded strings.
+**Agents**: When a feature needs a new secret or credential, document the required key and where it is stored (Secrets Manager path or GitHub Environment). Do not add code that reads secrets from the repo or from hardcoded strings. In **sandboxes**, **discover and use** already-provisioned project/workspace secrets for git and cloud APIs per [ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md); never echo secret values in output.
 
 ---
 

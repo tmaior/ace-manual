@@ -49,12 +49,14 @@ Welcome to the ACE (Automated Cloud Engineer) system documentation. Use this pag
 | Run or deploy the system | [environments/](./environments/); local step-by-step: [environments/local-setup/](./environments/local-setup/) |
 | Understand infra (ace-infra, AWS, Terraform, K8s) | [infrastructure/](./infrastructure/) |
 | Know coding/deploy rules | [rules/](./rules/) |
+| **AI agent** sandbox workflow (push, secrets, local test, PR) | [rules/ai-agent-ace-workflow.md](./rules/ai-agent-ace-workflow.md) |
 | Document or use a specific service | [services/](./services/) |
 | Get clone URLs / links for each ACE repo | [repositories.md](./repositories.md) |
 | Learn how index/README/START_HERE work in each folder | [REPO_RULES.md](./REPO_RULES.md) |
 
 ## For AI agents
 
+- **Sandbox / automated development**: Read [rules/ai-agent-ace-workflow.md](./rules/ai-agent-ace-workflow.md) for ACE implementation: feature branches, **push commits to the remote** (Daytona and similar sessions can expire and wipe local-only work), **use project secrets** for GitHub/AWS before asking, run **local-env** and **smoke tests** before claiming done, share **URLs**, open **PR** after the user confirms.
 - **Mandatory rules**: Read [rules/main-rules.md](./rules/main-rules.md) first. All code and technical documentation must be in English; document every change; keep index, README, and START_HERE in sync when adding, removing, or moving docs; do not invent—read docs and code, then ask if unclear.
 - **Local environment**: To bring up a local ACE stack (same as local-env), follow [environments/local-setup/](./environments/local-setup/) in order (prerequisites → repos → config → env vars → startup → health checks). Do not skip steps or invent paths or ports.
 - **Doc structure**: Every documentation directory must have **index.md**, **START_HERE.md**, and **README.md**; when creating a new folder, add all three; when changing contents, update the three in that folder. See [REPO_RULES.md](./REPO_RULES.md).

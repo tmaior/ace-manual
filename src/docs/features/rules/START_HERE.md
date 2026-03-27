@@ -12,6 +12,9 @@ Overview of the rules directory: why it exists, what each document covers, and h
 **[main-rules.md](./main-rules.md)**  
 Core rules that always apply: English for code and docs, document every change, use the correct doc structure, keep index/README/START_HERE in sync, respect standardizations, read rules before acting, and never invent—read or ask.
 
+**[ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md)**  
+Mandatory playbook for **AI agents** in **ephemeral sandboxes** (e.g. Daytona): feature branches, **push to remote** so commits survive session loss, use **project secrets** for GitHub/AWS proactively, run **local-env** and **smoke tests** before claiming done, share **URLs**, open **PR** after user confirmation.
+
 **[application-requirements.md](./application-requirements.md)**  
 Rules and procedures that **every** ACE application must follow: docs, code, APIs, security, logging, infrastructure, deployment, testing. Use when including a new application or auditing compliance.
 
