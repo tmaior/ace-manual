@@ -34,7 +34,7 @@ Commands API for bots and automation.
 Operations scheduler service.
 
 **[ace-jira-integration/](./ace-jira-integration/)**  
-Jira Connect app: webhooks (issue/comment), project link resolution via db-gateway, payloads to ops-scheduler.
+Jira Connect app: webhooks (issue/comment), project link resolution via db-gateway, payloads to ops-scheduler. **Required** for Jira-driven ACE capabilities (the platform depends on this path when using Jira).
 
 **[ace-infra/](./ace-infra/)**  
 Infrastructure as code: Terraform, K8s, AWS; see also [../infrastructure/](../infrastructure/).

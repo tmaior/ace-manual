@@ -2,7 +2,7 @@
 
 ## What it is
 
-**ace-jira-integration** is the ACE Atlassian Connect app for Jira. It is a Node.js Express application that uses `@atlassian/atlassian-connect-express` to register as a Jira add-on, expose a Connect descriptor (`atlassian-connect.json`), and receive Jira webhooks. It does **not** expose a general-purpose REST API; its main role is to receive webhook events from Jira, resolve the corresponding ACE project via **ace-db-gateway**, and forward payloads to **ace-ops-scheduler** for the omnichannel pipeline.
+**ace-jira-integration** is the ACE Atlassian Connect app for Jira. The platform **depends on it** for everything that is driven from Jira into ACE (linked projects). It is a Node.js Express application that uses `@atlassian/atlassian-connect-express` to register as a Jira add-on, expose a Connect descriptor (`atlassian-connect.json`), and receive Jira webhooks. It does **not** expose a general-purpose REST API; its main role is to receive webhook events from Jira, resolve the corresponding ACE project via **ace-db-gateway**, and forward payloads to **ace-ops-scheduler** for the omnichannel pipeline.
 
 ## Purpose
 

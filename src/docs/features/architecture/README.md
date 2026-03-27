@@ -10,7 +10,7 @@ This directory holds documentation for:
 
 - **High-level system design** and service boundaries (see [overview.md](./overview.md))
 - **Service catalog**: every service, tech stack, ports, env vars, dependencies (see [service-catalog.md](./service-catalog.md))
-- **Data flow** and communication between services: auth, request flows, sequences (see [data-flow.md](./data-flow.md))
+- **Data flow** and communication between services: auth, request flows, Jira webhooks, sequences (see [data-flow.md](./data-flow.md))
 - **Integrations**: how services call each other, URLs, JWT, contracts (see [integrations.md](./integrations.md))
 - **Deployment**: where ACE runs (local, staging, production), K8s, AWS (see [deployment.md](./deployment.md))
 - **Security model**: auth, secrets, validation (see [security.md](./security.md))

@@ -37,7 +37,7 @@ See also: [main rules](./main-rules.md) (respect existing standardizations), [de
 ## 3. APIs and URLs
 
 - **No global /api prefix**: The project does **not** mandate a single global `/api` prefix for all routes. Route paths are defined per controller or module; do not add a project-wide `/api` prefix unless the project explicitly uses it.
-- **URLs from environment**: Base URLs and service endpoints must come from **environment variables** (e.g. `VITE_API_URL`, `ACE_DB_GATEWAY_URL`). **Never hardcode** full URLs or hosts in code or config that could differ per environment.
+- **URLs from environment**: Base URLs and service endpoints must come from **environment variables** (e.g. `VITE_API_URL`, **`ACE_GATEWAY_URL`** for ace-stack-backend → db-gateway, or **`ACE_DB_GATEWAY_ENDPOINT`** where that service defines it). **Never hardcode** full URLs or hosts in code or config that could differ per environment.
 - **REST**: APIs between ACE services are **REST**. Use consistent HTTP methods and status codes; document endpoints in the service `docs/`.
 
 **Agents**: When adding or calling an API, use env vars for base URLs. Do not hardcode URLs. Follow the existing route and controller structure in the service (e.g. NestJS controller paths, backend route patterns).

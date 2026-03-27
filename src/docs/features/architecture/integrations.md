@@ -8,8 +8,9 @@ This document describes **how ACE services integrate**: base URLs, authenticatio
 
 - **All service base URLs** must come from **environment variables**. Never hardcode hosts or full URLs in code or config that can differ per environment.
 - **Frontend** → Backend: e.g. `VITE_API_URL` or equivalent (see ace-dashboard-frontend).
-- **Backend** → DB Gateway: e.g. `ACE_DB_GATEWAY_URL` or `DB_GATEWAY_URL` (see ace-stack-backend).
-- **Backend** → other internal services: use env vars per service (e.g. `ACE_COMMANDS_API_URL`, `ACE_CONFIGURATION_URL`).
+- **Backend** → DB Gateway: **`ACE_GATEWAY_URL`** (ace-stack-backend; base URL for ace-db-gateway). Other callers may use different env names (e.g. `ACE_DB_GATEWAY_ENDPOINT` in ace-jira-integration); always take the name from that service’s docs.
+- **Configuration and project data**: Runtime reads/writes (configurations, projects, links, etc.) go through **ace-db-gateway** REST paths (e.g. `/api/configurations`, `/api/project-jira-links`). **ace-configuration** is the **schema/migrations/models** repo—not a separate HTTP API that the dashboard backend calls for that data.
+- **Backend** → other internal services: use env vars per service (e.g. `ACE_COMMANDS_API_URL`).
 - **Bots** → Backend or Commands API: same principle; URLs from env.
 
 See [../rules/standardization-rules.md](../rules/standardization-rules.md): “URLs from environment; never hardcode.”
@@ -34,7 +35,7 @@ See [../rules/standardization-rules.md](../rules/standardization-rules.md): “U
 ## API Naming and Structure
 
 - **No global /api prefix**: The project does not mandate a single `/api` prefix for all routes. Paths are defined per controller or module in each service. See [../rules/standardization-rules.md](../rules/standardization-rules.md).
-- **REST**: Inter-service APIs are REST. Use consistent HTTP methods and status codes; document endpoints in the service’s `docs/`.
+- **REST**: Many inter-service APIs are **REST**. Command execution, docs-sync, and health jobs also use **asynchronous queues (SQS)** and workers; document both patterns in the owning service’s `docs/`.
 - **Versioning**: If a service uses versioned paths (e.g. `/v1/...`), callers must use the same version contract. Document in the service that owns the API.
 
 ---

@@ -51,7 +51,7 @@ kubectl create namespace qa
 
 - **Path pattern**: **`ace/<short>/<service>-secrets`** (e.g. `ace/qa/ace-stack-backend-secrets`, `ace/qa/ace-db-gateway-secrets`).
 - **Action**: For each service that will run in the new environment, create a secret at that path with the **same keys** as dev/stg/prod (see [env-vars-and-secrets.md](./env-vars-and-secrets.md) and each service’s docs). Values must be specific to this environment (e.g. own DB URL, Redis, JWT secret; do not reuse production secrets).
-- **Services to consider**: ace-stack-backend, ace-db-gateway, ace-dashboard-frontend (build-time vars may come from pipeline or env-specific config), ace-slackbot, ace-ops-bot, ace-sec-bot, ace-commands-api, ace-ops-scheduler, ace-configuration, and any other deployed service.
+- **Services to consider**: ace-stack-backend, ace-db-gateway, ace-dashboard-frontend (build-time vars may come from pipeline or env-specific config), ace-slackbot, ace-ops-bot, ace-sec-bot, ace-commands-api, ace-ops-scheduler, ace-configuration, **ace-jira-integration** (required if the environment must handle Jira-driven ACE workflows), and any other deployed service.
 - **Rule**: Only environment variables for the application; no arbitrary config. See [../rules/infrastructure-rules.md](../rules/infrastructure-rules.md).
 
 ---

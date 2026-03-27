@@ -9,14 +9,15 @@ Catalog of every ACE service that agents and developers may need to touch. For e
 | Service | Repo / path | Tech stack | Main responsibility | Default port | Key env vars | Dependencies |
 |---------|-------------|------------|---------------------|-------------|--------------|--------------|
 | ace-dashboard-frontend | ace-dashboard-frontend/ | React, TypeScript, Vite | User-facing UI; calls backend APIs | (dev server varies) | VITE_API_URL, backend base URL | ace-stack-backend |
-| ace-stack-backend | ace-stack-backend/ | NestJS, Node.js, TypeScript | Auth (JWT), business logic, orchestration | 3000 (typical) | DB_GATEWAY_URL, DB, JWT secret, etc. | ace-db-gateway, optionally ace-configuration, ace-commands-api |
+| ace-stack-backend | ace-stack-backend/ | NestJS, Node.js, TypeScript | Auth (JWT), business logic, orchestration | 3000 (typical) | **ACE_GATEWAY_URL** (ace-db-gateway), DB, JWT, OAuth secrets, etc. | ace-db-gateway (incl. `/api/configurations`), optionally ace-commands-api |
 | ace-db-gateway | ace-db-gateway/ | Node.js, TypeScript | Centralized DB access; validates JWT | (per deploy) | DB connections, JWT validation | PostgreSQL / DBs |
 | ace-configuration | ace-configuration/ | (see repo) | Configuration management | (per deploy) | (see service docs) | (see repo) |
 | ace-slackbot | ace-slackbot/ | Node.js, Slack API, Redis | Slack bot; sessions via Redis | (per deploy) | Slack tokens, Redis, backend/commands URL | ace-stack-backend and/or ace-commands-api |
 | ace-sec-bot | ace-sec-bot/ | Node.js, Slack API, Redis | Security bot | (per deploy) | Slack, Redis, APIs | (see repo) |
 | ace-ops-bot | ace-ops-bot/ | Node.js, Slack API, Redis | Operations bot | (per deploy) | Slack, Redis, APIs | (see repo) |
 | ace-commands-api | ace-commands-api/ | Node.js, TypeScript | Commands API for bots and automation | (per deploy) | (see service docs) | (see repo) |
-| ace-ops-scheduler | ace-ops-scheduler/ | (see repo) | Operations scheduler | (per deploy) | (see service docs) | (see repo) |
+| ace-ops-scheduler | ace-ops-scheduler/ | (see repo) | Operations scheduler | (per deploy) | (see service docs) | ace-db-gateway, ace-commands-api; consumes payloads (e.g. from Jira flow) |
+| ace-jira-integration | ace-jira-integration/ | Node.js, Express, Atlassian Connect | Jira webhooks; project links via db-gateway; forward payloads to ops-scheduler | (per deploy) | APP_URL, DATABASE_URL, ACE_DB_GATEWAY_*, OPS_SCHEDULER_URL | ace-db-gateway, ace-ops-scheduler, Jira Cloud |
 
 ---
 

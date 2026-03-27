@@ -39,19 +39,18 @@ Not every repository uses all of these. The exact flow depends on the repository
 
 ### Most repositories (backend, bots, db-gateway, configuration, infra, etc.)
 
-- **Flow**: `feature` / `bugfix` → **development** → **staging** (if used) → **main**.
+- **Flow**: `feature` / `bugfix` → **development** → **staging** → **main**.
 - **Branch from**: Create `feature/*` or `bugfix/*` from **development**.
-- **Merge path**: Feature/bugfix PR into `development`; then PR from `development` to `staging` (if applicable); then PR from `staging` to `main` (or from `development` to `main` when staging is not in use).
-- **Production**: PRs that deploy to production are created **from `development`** (or from the branch that your environment pipeline uses as source). Do not open production deploy PRs from `main` or ad-hoc branches unless the project defines an exception.
+- **Merge path**: Feature/bugfix PR into **development**; then PR **development → staging**; then PR **staging → main**.
+- **Deploy**: Runtime deploy for each service follows that repo’s CI/CD (GitHub Actions, branch filters, environments). Often production-like environments track **`main`** after **staging → main**; confirm in the repo’s workflows and [ace-infra](../infrastructure/ace-infra-repository.md).
 
-### ace-dashboard-frontend (exception)
+### ace-dashboard-frontend
 
-- **Reason**: The frontend is edited via **Lovable**, which uses **main** as the branch for direct changes.
-- **Flow**: Feature work may land on **main** first, then be promoted to **development**, then to **production**.
-- **Release**: Two PRs are required for a release:
+- **Day-to-day flow**: `feature` / `bugfix` → **development** → **staging** → **main**, same PR chain as other repos (**development → staging**, then **staging → main**).
+- **Release promotions from staging**: After validation on **staging**, two separate PRs are required:
   1. **staging → main**
   2. **staging → production**
-- When working in the monorepo or with non-Lovable flows, follow the same staging → main and staging → production pattern as documented for that repo.
+- **Why two PRs from staging**: **CI/CD that deploys the live customer-facing site listens on the `production` branch**, while **`main` historically existed for Lovable**, which was configured to read and write the **main** branch directly. **Lovable is no longer used**, but the split remains: one promotion updates **`main`** (e.g. continuity with tooling and history) and the other updates **`production`** (what the production pipeline deploys). Always open **both** PRs for a coordinated frontend release unless the team explicitly documents a different process.
 
 **Agents**: Before creating or merging a PR, confirm which repository you are in and apply the correct flow (most repos vs ace-dashboard-frontend). Use the PR template that matches the branch pair (see [PR rules](./pr-rules.md)).
 
@@ -97,8 +96,8 @@ Not every repository uses all of these. The exact flow depends on the repository
 | Branch names | **kebab-case** only (e.g. `feature/user-management`, `bugfix/login-validation`). |
 | Long-lived branches | `development`, `staging`, `main`; `production` only in ace-dashboard-frontend. |
 | Feature/bugfix | Branch from **development**; merge via PR. |
-| Most repos | feature → development → (staging) → main; production deploy PRs from development. |
-| ace-dashboard-frontend | Lovable uses main; release = PR staging→main + PR staging→production. |
+| Most repos | feature → development → staging → main; deploy source per repo CI/CD (often main after staging→main). |
+| ace-dashboard-frontend | feature → development → staging → main; release = **two PRs**: staging→main **and** staging→production (production pipeline watches `production`; `main` retained from legacy Lovable setup). |
 | Commits | **Conventional Commits** (`feat`, `fix`, `docs`, etc.) in English. |
 | Protected branches | No direct push; use PRs only. |
 | Before PR | Update branch from base (rebase/merge), resolve conflicts. |

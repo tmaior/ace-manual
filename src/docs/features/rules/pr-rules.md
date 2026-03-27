@@ -6,14 +6,14 @@ Rules for creating, describing, and reviewing pull requests in the ACE system. T
 
 ## 1. Branch flow and base branches
 
-- **Most repositories**: Feature work flows **feature → development → staging → main**. PRs target the next branch in that chain.
-- **Production**: PRs that deploy to production are created **from `development`** (not from `staging` or `main` unless the project explicitly defines otherwise for a given repo).
-- **ace-dashboard-frontend (exception)**:
-  - Flow: feature → main → development → production (Lovable uses `main` for direct changes).
-  - Two PRs are required for release: **staging → main** and **staging → production** (or the equivalent for that repo’s flow).
+- **Most repositories**: Feature work flows **feature → development → staging → main**. Open PRs for each promotion (**→ development**, **development → staging**, **staging → main**) as your team uses that repo.
+- **Deploy / production**: Which branch triggers production deploy is defined per repository (GitHub Actions, environments). For many services, **`main`** is the long-lived line after **staging → main**; verify workflows in the repo and ace-infra.
+- **ace-dashboard-frontend**:
+  - **Integration flow**: **feature → development → staging → main** (same PR steps as other repos: merge to `development`, then **development → staging**, then **staging → main**).
+  - **Release**: Two PRs from **staging**: **staging → main** and **staging → production**. **Production** deploy pipelines listen on the **`production`** branch; **`main`** is kept in sync for historical/tooling reasons (legacy **Lovable** read/write on `main`; Lovable is **no longer used**). For a normal release, open **both** PRs unless documented otherwise.
 - **Branch names**: Always **kebab-case** (e.g. `feature/user-management`, `bugfix/login-validation`).
 
-**Agents**: Before creating a PR, confirm the current branch and the correct base (development, staging, or main) according to the repository and the desired target environment.
+**Agents**: Before creating a PR, confirm the current branch and the correct base (`development`, `staging`, `main`, or `production` for the second frontend promotion) per repository and target.
 
 ---
 
@@ -26,6 +26,7 @@ PR descriptions must follow the **correct template** for the branch pair. Templa
 | feature → development, bugfix → development, hotfix → development | `pr-branch-to-dev.v3.0.0.md` (or current branch-to-dev template) |
 | development → staging, hotfix → staging | `pr-dev-to-staging.v2.0.0.md` (or current dev-to-staging template) |
 | staging → main, hotfix → main | `pr-staging-to-main.v3.0.0.md` (or current staging-to-main template) |
+| staging → production (ace-dashboard-frontend) | Use the team’s **staging → production** template if one exists; otherwise mirror the structure of `pr-staging-to-main.v3.0.0.md` and clarify deploy target in the title/body. |
 
 - Use the template that matches the **head → base** of the PR.
 - If the pair does not match any template, do not invent a format; ask or follow project-specific guidance.
@@ -113,7 +114,7 @@ Before opening or submitting a PR, ensure:
 
 ## 8. Repository-specific notes
 
-- **ace-dashboard-frontend**: For releases, both **staging → main** and **staging → production** PRs are required; mention this when creating PRs for that repo.
+- **ace-dashboard-frontend**: For releases, both **staging → main** and **staging → production** PRs are required (`production` is what the live deploy pipeline watches; `main` is kept aligned—see [gitflow rules](./gitflow-rules.md)).
 - **ace-infra**: Follow the same PR rules; additionally, **terraform fmt** and **terraform validate** must pass before merge.
 
 ---
@@ -122,7 +123,7 @@ Before opening or submitting a PR, ensure:
 
 | Topic | Rule |
 |-------|------|
-| Base branch | Use the correct flow (feature→dev→staging→main); production from development. Frontend: staging→main and staging→production. |
+| Base branch | Most repos: feature→development→staging→main. Frontend release: also **staging→production** (plus staging→main). |
 | Branch names | kebab-case only. |
 | Template | Choose template by branch pair (branch-to-dev, dev-to-staging, staging-to-main). |
 | PR body | English; all template sections filled; code blocks with language. |

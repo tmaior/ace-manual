@@ -19,6 +19,7 @@ Clone with HTTPS or SSH depending on your setup. For local development, clone al
 | ace-ops-bot | Operations bot service | https://github.com/ezops-br/ace-ops-bot |
 | ace-commands-api | Commands API for bots and automation | https://github.com/ezops-br/ace-commands-api |
 | ace-ops-scheduler | Operations scheduler service | https://github.com/ezops-br/ace-ops-scheduler |
+| ace-jira-integration | Atlassian Connect app for Jira (webhooks → db-gateway → ops-scheduler); **required** for Jira-driven ACE capabilities | https://github.com/ezops-br/ace-jira-integration |
 
 ---
 
@@ -36,14 +37,6 @@ Clone with HTTPS or SSH depending on your setup. For local development, clone al
 | Item | Notes | URL |
 |------|-------|-----|
 | local-env | Local docker-compose and configs. May live under ace-infra or at ACE root; see [environments/local.md](./environments/local.md). | (part of ace-infra or local setup) |
-
----
-
-## Related / optional
-
-| Repository | Purpose | URL |
-|------------|---------|-----|
-| ace-jira-integration | ACE–Jira integration (used in local-env when enabled) | https://github.com/ezops-br/ace-jira-integration |
 
 ---
 
@@ -70,6 +63,7 @@ git clone https://github.com/ezops-br/ace-sec-bot.git
 git clone https://github.com/ezops-br/ace-ops-bot.git
 git clone https://github.com/ezops-br/ace-commands-api.git
 git clone https://github.com/ezops-br/ace-ops-scheduler.git
+git clone https://github.com/ezops-br/ace-jira-integration.git
 git clone https://github.com/ezops-br/ace-infra.git
 git clone https://github.com/ezops-br/ace-manual.git
 ```

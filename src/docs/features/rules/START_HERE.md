@@ -16,7 +16,7 @@ Core rules that always apply: English for code and docs, document every change, 
 Rules and procedures that **every** ACE application must follow: docs, code, APIs, security, logging, infrastructure, deployment, testing. Use when including a new application or auditing compliance.
 
 **[pr-rules.md](./pr-rules.md)**  
-Pull request flow, base branches, PR template selection by branch pair, PR body structure (features, improvements, bug fixes, testing, dependencies, etc.), generating `PR.md`, and using `gh pr create`. Includes pre-PR checklist and repository-specific notes.
+Pull request flow, base branches, PR template selection by branch pair (including **staging → production** for ace-dashboard-frontend when applicable), PR body structure (features, improvements, bug fixes, testing, dependencies, etc.), generating `PR.md`, and using `gh pr create`. Includes pre-PR checklist and repository-specific notes.
 
 **[development-rules.md](./development-rules.md)**  
 Development workflow: feature branches from latest `development`, local testing before commit/push, merging into `development`, using and updating each service's `docs/`, creating new docs within the rules, and following existing standardizations (e.g. pagination like the rest of the app).
@@ -31,7 +31,7 @@ When and where to document; document everything that is done. Structure and keba
 Naming (camelCase, PascalCase, kebab-case), APIs and URLs (env vars, no hardcoding), Conventional Commits, error handling and logging, security (validation, JWT), doc structure, infra tags and naming. Rule to reuse existing patterns instead of inventing new ones.
 
 **[gitflow-rules.md](./gitflow-rules.md)**  
-Branch naming (kebab-case), long-lived branches (development, staging, main, production for frontend), feature/bugfix/hotfix branches, repository-specific flow (most repos vs ace-dashboard-frontend), Conventional Commits, no direct push to protected branches, and keeping branches up to date before opening a PR.
+Branch naming (kebab-case), long-lived branches (development, staging, main, production for frontend), feature/bugfix/hotfix branches, repository-specific flow (most repos vs ace-dashboard-frontend dual promotion **staging → main** and **staging → production**), Conventional Commits, no direct push to protected branches, and keeping branches up to date before opening a PR.
 
 **[security-rules.md](./security-rules.md)**  
 Input validation, JWT on protected endpoints, secrets (no commit or hardcode), safe error messages, rate limiting for bots, and permissions and authorization. Consolidates security requirements for all services.
