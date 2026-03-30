@@ -1,5 +1,7 @@
 # Jira-led development planning and execution
 
+**Discovery**: ACE loads this file as part of the **development** rule set. The docs root entry that forces reading these rules (including this file) is [development-request-rules-for-ace.md](../development-request-rules-for-ace.md).
+
 This document defines the **mandatory workflow** when a stakeholder asks ACE to **implement or change** the platform: the agent must **plan first**, **record the plan in Jira**, wait for **explicit human acceptance**, then **implement according to the Jira breakdown**.
 
 It complements [ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md) (branches, push, secrets, local validation, PRs), [development-rules.md](./development-rules.md), and [gitflow-rules.md](./gitflow-rules.md). When this workflow applies, it **defers bulk implementation** until after Jira acceptance, even if other docs speak generally about “implementation.”

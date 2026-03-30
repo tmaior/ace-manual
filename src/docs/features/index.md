@@ -4,6 +4,7 @@ Contents of this directory (links only). For descriptions and how to use, see [S
 
 - [README.md](./README.md)
 - [START_HERE.md](./START_HERE.md)
+- [development-request-rules-for-ace.md](./development-request-rules-for-ace.md)
 - [REPO_RULES.md](./REPO_RULES.md)
 - [repositories.md](./repositories.md)
 - [rules/](./rules/)
