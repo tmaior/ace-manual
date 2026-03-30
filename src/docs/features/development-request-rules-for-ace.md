@@ -24,6 +24,8 @@ Purely informational questions (e.g. “what is ace-db-gateway?”) with **no** 
 
 ## Minimum reading set (development requests)
 
+**Agents**: Read **[rules/AI-AGENT-QUICKSTART.md](./rules/AI-AGENT-QUICKSTART.md)** first. It states the **three gates** (Jira acceptance before bulk implementation, user confirmation, PR review) and links the golden path. It does not replace the documents below; use it as the high-visibility entry, then complete the full list.
+
 Read **in order** (or in parallel, but all must be covered before execution planning):
 
 1. [rules/main-rules.md](./rules/main-rules.md) — non-negotiable principles; English for code/docs; document changes; do not invent.

@@ -17,10 +17,10 @@ docs/
 ├── index.md          # This index and quick links
 ├── START_HERE.md     # Entry point for new readers
 ├── README.md         # This file - overview and usage
-├── development-request-rules-for-ace.md  # ACE: read first on development requests; links to all required rules (incl. Jira)
+├── development-request-rules-for-ace.md  # ACE: development requests; links minimum set (incl. Jira)
 ├── REPO_RULES.md     # Rules for index, START_HERE, README in every directory
 ├── repositories.md   # GitHub URLs and clone links for all ACE repositories
-├── rules/            # Conventions, Gitflow, standards, security
+├── rules/            # Conventions, Gitflow, standards, security (agents on dev: AI-AGENT-QUICKSTART.md first)
 ├── architecture/    # System design, diagrams, ADRs
 ├── environments/     # Local, staging, production; configs; deployment
 ├── infrastructure/   # ace-infra repo, AWS, Terraform, Kubernetes, deployment
@@ -32,7 +32,7 @@ Every documentation directory (including subdirectories) should contain **index.
 ## How to Use
 
 - **New to the project**: Start with [START_HERE.md](./START_HERE.md), then [architecture/](./architecture/) and [environments/](./environments/). To clone repos, use [repositories.md](./repositories.md).
-- **Implementing features**: Start with [development-request-rules-for-ace.md](./development-request-rules-for-ace.md) (mandatory reading list for ACE on development work), then [rules/](./rules/) for conventions and [services/](./services/) for the service you are changing.
+- **Implementing features**: Start with [rules/AI-AGENT-QUICKSTART.md](./rules/AI-AGENT-QUICKSTART.md), then [development-request-rules-for-ace.md](./development-request-rules-for-ace.md) (mandatory reading list, including Jira-led gating), then [rules/](./rules/) for conventions and [services/](./services/) for the service you are changing.
 - **Deploying or debugging**: Use [environments/](./environments/) and the relevant [services/](./services/) doc.
 - **Infrastructure (ace-infra, Terraform, AWS, K8s)**: Use [infrastructure/](./infrastructure/).
 

@@ -6,6 +6,14 @@ This document defines the **mandatory workflow** when a stakeholder asks ACE to 
 
 It complements [ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md) (branches, push, secrets, local validation, PRs), [development-rules.md](./development-rules.md), and [gitflow-rules.md](./gitflow-rules.md). When this workflow applies, it **defers bulk implementation** until after Jira acceptance, even if other docs speak generally about “implementation.”
 
+**Agents**: For a short entry point and read order, see [AI-AGENT-QUICKSTART.md](./AI-AGENT-QUICKSTART.md). For a decision tree, see [golden-path-flowchart.md](./golden-path-flowchart.md).
+
+---
+
+## Critical rule (read before Phase E)
+
+**Do not start bulk implementation until Phase D is complete.** After you create Jira issues in Phase C, you must **stop** and wait for human acceptance. Research-only activity (reading code and docs to build the plan) is allowed in Phases A–B; **feature branches, production-bound commits, and PRs for the scoped work** belong in Phase E **after** approval.
+
 ---
 
 ## 1. When this workflow applies
@@ -49,6 +57,19 @@ Output of this phase is **internal coherence**: you can explain how the pieces f
 
 **Tooling**: Create issues via whatever is available and authorized in the environment (Jira REST API, Atlassian UI, automation, MCP). If creation is **blocked** (permissions, missing project key), stop, report the blocker, and do not pretend the plan was recorded in Jira.
 
+### STOP after Phase C (hard gate)
+
+**Important: do not start coding for the planned scope until Phase D is complete.**
+
+| Do **not** (before Phase D approval) | Do **instead** |
+|--------------------------------------|----------------|
+| Write implementation code for the scoped work | Create Jira Epic/parent and Stories/tasks (or linked issues) that fully cover the plan |
+| Create feature branches for that scope | Summarize Jira keys and links in the conversation |
+| Open PRs for that scope | Tell the user planning is in Jira and you are **awaiting approval** to proceed |
+| Assume chat approval replaces Jira | Wait for explicit human acceptance in Jira (and thread confirmation if your team requires it) |
+
+**Example approval phrasing** (adjust to team norms): a comment on the parent Epic such as `Approved — ACE may proceed`, or transitioning issues to a **ready for implementation** status **plus** a short confirmation in the thread naming which keys to execute.
+
 ---
 
 ## 5. Phase D — Human acceptance in Jira
@@ -60,6 +81,18 @@ Output of this phase is **internal coherence**: you can explain how the pieces f
    - Transitioning issues to a team-agreed status meaning **ready for implementation** (e.g. Ready / In Progress per team workflow), **combined with** a short confirmation in the thread naming the Epic or issue keys to execute.
 
 If the human changes the Jira scope, **re-read** the updated issues and treat them as the new source of truth.
+
+---
+
+## Violation consequences (why the gate exists)
+
+If you implement **before** Jira acceptance:
+
+- **Rework risk**: The human may change scope, split issues, or reject part of the plan; your code may be discarded or require heavy rework.
+- **Loss of early review**: Stakeholders lose the chance to correct direction **before** implementation cost is spent.
+- **Process break**: The team cannot rely on Jira as the plan and approval record; traceability from ticket to PR suffers.
+
+If you realize you started Phase E too early: **stop**, notify the user, align Jira to what was done or roll back per team practice, and **do not** open PRs for unapproved scope without explicit instruction.
 
 ---
 

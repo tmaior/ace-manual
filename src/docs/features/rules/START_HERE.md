@@ -6,6 +6,18 @@ This directory contains all project rules, conventions, and standards for the AC
 
 ## Files
 
+**[AI-AGENT-QUICKSTART.md](./AI-AGENT-QUICKSTART.md)**  
+**AI agents (development work)**: Read this **first**. Three gates (Jira plan accepted before bulk coding, user confirmation, PR review), minimum read-order table, pointer to golden path and Jira-led phases.
+
+**[golden-path-flowchart.md](./golden-path-flowchart.md)**  
+Mermaid and plain-language decision tree for development requests: when to stop and wait for Jira Phase D.
+
+**[FIRST-TIME-DEVELOPER.md](./FIRST-TIME-DEVELOPER.md)**  
+Checklist for humans and agents: required reads, sandbox extras, PR prep, verification questions before coding.
+
+**[SYSTEM-PROMPT-REMINDER.md](./SYSTEM-PROMPT-REMINDER.md)**  
+Short copy-paste block for project or agent system prompts to reinforce Jira-led gating.
+
 **[README.md](./README.md)**  
 Overview of the rules directory: why it exists, what each document covers, and how to use it (for new contributors, AI agents, and when changing processes). Also describes the relationship with `.cursor/rules/` and service-level docs.
 
