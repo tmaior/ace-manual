@@ -15,6 +15,9 @@ Core rules that always apply: English for code and docs, document every change, 
 **[ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md)**  
 Mandatory playbook for **AI agents** in **ephemeral sandboxes** (e.g. Daytona): feature branches, **push to remote** so commits survive session loss, use **project secrets** for GitHub/AWS proactively, run **local-env** and **smoke tests** before claiming done, share **URLs**, open **PR** after user confirmation.
 
+**[jira-led-development-planning.md](./jira-led-development-planning.md)**  
+When the user asks for **development work**: understand the request, map **all** impacted ACE apps/repos, create **Jira issues** that document the full plan, **wait for human acceptance in Jira**, then implement **per issue** (with branches, tests, and PRs per other rules).
+
 **[application-requirements.md](./application-requirements.md)**  
 Rules and procedures that **every** ACE application must follow: docs, code, APIs, security, logging, infrastructure, deployment, testing. Use when including a new application or auditing compliance.
 
