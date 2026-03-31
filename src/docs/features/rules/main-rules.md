@@ -63,6 +63,8 @@ These rules **must always be followed** by anyone (human or AI agent) working on
 
 **Agents**: At the start of a task, identify which rules and docs apply (main rules, PR, development, infrastructure, documentation, standardization, and any service-specific docs). Use them to guide implementation and avoid violations.
 
+For **development requests** (code or infra changes in ACE), also read **[AI-AGENT-QUICKSTART.md](./AI-AGENT-QUICKSTART.md)** and **[jira-led-development-planning.md](./jira-led-development-planning.md)** so you do not skip the **Jira acceptance gate** before bulk implementation.
+
 ---
 
 ## 7. Nothing must be invented
@@ -72,6 +74,14 @@ These rules **must always be followed** by anyone (human or AI agent) working on
 - Guessing or making up patterns, APIs, or workflows is not allowed. Prefer reading first, then asking, over inventing.
 
 **Agents**: When something is ambiguous or unknown, search and read the project docs (e.g. central docs: ace-manual `src/docs/features/` or equivalent; service `docs/`; `.cursor/rules/`) and the relevant application code. If after that you still do not know what or how to do it, ask the user. Do not invent solutions, naming, or behavior.
+
+---
+
+## 8. AI agents implementing ACE in sandboxes
+
+Agents that **edit ACE repositories** from **ephemeral or automated environments** (e.g. **Daytona**) **must** follow **[ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md)** in addition to these main rules. It mandates: **feature branches** and **regular `git push`** (so work is not lost when the session ends), **checking and using project secrets** for GitHub/AWS before asking unnecessary questions, **running local-env / smoke checks** before treating work as complete, sharing **reachable URLs**, and opening a **PR after user confirmation**.
+
+**Agents**: Read `ai-agent-ace-workflow.md` at the start of any **implementation** task on ACE codebases when you are not working on a long-lived local machine with persistent git state.
 
 ---
 
@@ -86,3 +96,4 @@ These rules **must always be followed** by anyone (human or AI agent) working on
 | 5    | Respect existing standardizations. |
 | 6    | Always read and follow the rules and relevant docs before acting. |
 | 7    | Do not invent; read docs and code until you understand; if still unclear, ask the user. |
+| 8    | In sandboxes: follow [ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md) (push, secrets, test, URLs, PR). |

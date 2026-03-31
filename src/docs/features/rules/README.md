@@ -19,7 +19,13 @@ Each markdown file in this directory describes one area of rules. All of them ar
 
 | Document | What it covers |
 |----------|----------------|
+| [AI-AGENT-QUICKSTART.md](./AI-AGENT-QUICKSTART.md) | **AI agents — development**: Read **first** for implementation work. States the three gates (Jira acceptance before bulk coding, user confirmation, PR review), minimum read order, and links to Jira-led planning and golden path. |
+| [golden-path-flowchart.md](./golden-path-flowchart.md) | **Decision tree** (Mermaid + prose): development vs explain-only; stop after Jira filing until Phase D approval. |
+| [FIRST-TIME-DEVELOPER.md](./FIRST-TIME-DEVELOPER.md) | **Onboarding checklist**: required rule reads, sandbox workflow, PR prep, verification questions before coding. |
+| [SYSTEM-PROMPT-REMINDER.md](./SYSTEM-PROMPT-REMINDER.md) | **Copy-paste reminder** for agent or project instructions to enforce Jira-led workflow. |
 | [main-rules.md](./main-rules.md) | **Core rules that always apply**: English for code and docs, document every change, use the right doc structure, keep index/README/START_HERE in sync, respect standardizations, read rules before acting, and never invent—read or ask. Start here for the non‑negotiable principles. |
+| [ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md) | **AI agents in sandboxes** (e.g. Daytona): feature branches, **push to remote** so work survives session loss, use **project secrets** for GitHub/AWS without unnecessary prompts, **run local-env** and **smoke-test** before claiming done, share **URLs**, open **PR** after user confirms. Read first for agent-driven ACE implementation. |
+| [jira-led-development-planning.md](./jira-led-development-planning.md) | **Jira-led development**: For **implementation requests**, plan end-to-end, map impacted services/repos, create **Jira issues** for the plan, **pause until human accepts in Jira**, then execute work **per issue** (still following agent workflow, gitflow, and PR rules). |
 | [application-requirements.md](./application-requirements.md) | **Application requirements**: Rules, standardizations, behaviors, and procedures that **every** ACE application must follow. Single entry point for including a new app and for ensuring all apps meet code, docs, security, infra, and deployment requirements. |
 | [pr-rules.md](./pr-rules.md) | **Pull requests**: Branch flow and base branches, which PR template to use for each branch pair, PR body structure (features, improvements, bug fixes, testing, dependencies, etc.), how to generate `PR.md`, using `gh pr create`, pre-PR checklist, and PR review process (what reviewers check, approval before merge). |
 | [development-rules.md](./development-rules.md) | **Development workflow**: Feature branches from latest `development`, local testing before commit/push (feature branches + development for unchanged apps), merging into `development`, using and updating each service's `docs/`, creating new docs within the rules, and following existing standardizations (e.g. pagination like the rest of the app). |
@@ -36,17 +42,19 @@ Each markdown file in this directory describes one area of rules. All of them ar
 
 ### If you are new to the project
 
-1. Read **[main-rules.md](./main-rules.md)** first. It defines the principles that override everything else (language, documentation, structure, no invention).
-2. If you are **adding or auditing an application**, read **[application-requirements.md](./application-requirements.md)** for the rules that every app must follow.
-3. Then read **[gitflow-rules.md](./gitflow-rules.md)** and **[development-rules.md](./development-rules.md)** so you know how to branch, test, and merge.
-4. Before opening a PR, read **[pr-rules.md](./pr-rules.md)** and use the correct template and description format.
-5. When writing code or docs, use **[standardization-rules.md](./standardization-rules.md)** for naming, commits, APIs, and patterns; use **[documentation-rules.md](./documentation-rules.md)** for where and how to document.
-6. If you touch infrastructure or deployment, read **[infrastructure-rules.md](./infrastructure-rules.md)**.
-7. For security (validation, auth, secrets), read **[security-rules.md](./security-rules.md)**. For how to test (simple checks, no unit tests), read **[testing-rules.md](./testing-rules.md)**.
+1. **AI agents (development)**: **[AI-AGENT-QUICKSTART.md](./AI-AGENT-QUICKSTART.md)** then **[main-rules.md](./main-rules.md)**. **Humans**: **[main-rules.md](./main-rules.md)** first (principles: language, documentation, structure, no invention).
+2. If you are an **AI agent** (or run in an **ephemeral sandbox** such as Daytona), read **[ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md)** for branches, push cadence, secrets, local validation, and PR handoff. For **development with a Jira plan gate**, read **[jira-led-development-planning.md](./jira-led-development-planning.md)** and optionally **[golden-path-flowchart.md](./golden-path-flowchart.md)**.
+3. If you are **adding or auditing an application**, read **[application-requirements.md](./application-requirements.md)** for the rules that every app must follow.
+4. Then read **[gitflow-rules.md](./gitflow-rules.md)** and **[development-rules.md](./development-rules.md)** so you know how to branch, test, and merge.
+5. Before opening a PR, read **[pr-rules.md](./pr-rules.md)** and use the correct template and description format.
+6. When writing code or docs, use **[standardization-rules.md](./standardization-rules.md)** for naming, commits, APIs, and patterns; use **[documentation-rules.md](./documentation-rules.md)** for where and how to document.
+7. If you touch infrastructure or deployment, read **[infrastructure-rules.md](./infrastructure-rules.md)**.
+8. For security (validation, auth, secrets), read **[security-rules.md](./security-rules.md)**. For how to test (simple checks, no unit tests), read **[testing-rules.md](./testing-rules.md)**.
 
 ### If you are an AI agent
 
-- At the **start of every task**, determine which rules apply (main, application requirements, PR, development, documentation, standardization, gitflow, infrastructure, security, testing) and read the relevant files. Do not invent behavior or conventions; follow what is written here and in the service `docs/`.
+- For **implementation work**, read **[AI-AGENT-QUICKSTART.md](./AI-AGENT-QUICKSTART.md)** first, then **[development-request-rules-for-ace.md](../development-request-rules-for-ace.md)** and the minimum set it lists. From a **sandbox**, follow **[ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md)** (push, secrets, local validation, PR timing). **Jira-led planning** is default for development: **[jira-led-development-planning.md](./jira-led-development-planning.md)** — do not skip Phase D before bulk coding.
+- At the **start of every task**, determine which rules apply (main, AI agent workflow, application requirements, PR, development, documentation, standardization, gitflow, infrastructure, security, testing) and read the relevant files. Do not invent behavior or conventions; follow what is written here and in the service `docs/`.
 - When implementing a **feature** (e.g. pagination, a new endpoint), search the codebase for existing implementations and **reuse the same pattern** (see [standardization-rules.md](./standardization-rules.md) and [development-rules.md](./development-rules.md)).
 - When **creating or moving documentation**, follow [documentation-rules.md](./documentation-rules.md) and [main-rules.md](./main-rules.md) (structure, kebab-case, index/README/START_HERE).
 - When **creating a PR**, follow [pr-rules.md](./pr-rules.md) (template, `PR.md`, `gh pr create`). When **changing code**, plan the doc update in the same PR ([documentation-rules.md](./documentation-rules.md)).
@@ -68,7 +76,7 @@ Each markdown file in this directory describes one area of rules. All of them ar
 ## Summary
 
 - **Purpose**: One place for all ACE project rules so that humans and agents know how to develop, document, and operate the system consistently.
-- **Contents**: Main rules, PR rules, development rules, infrastructure rules, documentation rules, standardization rules, gitflow rules, security rules, and testing rules—each in its own file with clear sections and agent-oriented notes.
-- **How to follow**: Read the main rules first, then the rules that apply to your task (gitflow, development, PR, documentation, standardization, infrastructure). When adding something that already exists elsewhere, reuse the existing pattern. When changing a process, update the corresponding rule file and entry points (index, README, START_HERE) as required.
+- **Contents**: **AI-AGENT-QUICKSTART**, golden path flowchart, first-time checklist, system-prompt reminder, main rules, **AI agent ACE workflow**, Jira-led planning, PR rules, development rules, infrastructure rules, documentation rules, standardization rules, gitflow rules, security rules, and testing rules—each in its own file with clear sections and agent-oriented notes.
+- **How to follow**: **Agents on development**: [AI-AGENT-QUICKSTART.md](./AI-AGENT-QUICKSTART.md) then main rules and the rest that apply to your task (Jira-led, gitflow, development, PR, documentation, standardization, infrastructure). When adding something that already exists elsewhere, reuse the existing pattern. When changing a process, update the corresponding rule file and entry points (index, README, START_HERE) as required.
 
 For the overall documentation layout and entry points, see [../README.md](../README.md) and [../START_HERE.md](../START_HERE.md).

@@ -1,7 +1,13 @@
 # Rules – Index
 
+- [AI-AGENT-QUICKSTART.md](./AI-AGENT-QUICKSTART.md)
+- [golden-path-flowchart.md](./golden-path-flowchart.md)
+- [FIRST-TIME-DEVELOPER.md](./FIRST-TIME-DEVELOPER.md)
+- [SYSTEM-PROMPT-REMINDER.md](./SYSTEM-PROMPT-REMINDER.md)
 - [README.md](./README.md)
 - [main-rules.md](./main-rules.md)
+- [ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md)
+- [jira-led-development-planning.md](./jira-led-development-planning.md)
 - [application-requirements.md](./application-requirements.md)
 - [pr-rules.md](./pr-rules.md)
 - [development-rules.md](./development-rules.md)

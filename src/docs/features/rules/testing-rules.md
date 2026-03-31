@@ -2,7 +2,7 @@
 
 Rules for how to test the ACE system before opening a PR or releasing. Testing is **simple and behavior-focused**: calling URLs, viewing UIs, filling forms, and checking results (including in the database). There are **no unit tests or test code committed** to the repositories; at most, **shell scripts** may be used to run checks locally, but those scripts are **not committed**.
 
-See also: [development-rules](./development-rules.md) (local testing before commit/push), [pr-rules](./pr-rules.md) (Testing section in PR body).
+See also: [development-rules](./development-rules.md) (local testing before PR), [ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md) (smoke tests, `curl`, browser/Playwright evidence, URLs before claiming done), [pr-rules](./pr-rules.md) (Testing section in PR body).
 
 ---
 
@@ -32,7 +32,7 @@ Before considering a change done (and before opening a PR), perform **simple che
 
 ## 3. When to test
 
-- **Before commit and push**: After implementation, run the relevant simple tests (links, UI, forms, DB checks) so that the change works in your local environment. See [development-rules](./development-rules.md) (local testing with feature branches + development for unchanged apps).
+- **During / after implementation**: After implementation, run the relevant simple tests (links, UI, forms, DB checks) so that the change works in your local environment. See [development-rules](./development-rules.md) (local testing with feature branches + development for unchanged apps). In sandboxes, you may **push** the branch before every test passes—see [ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md)—but do **not** claim the task **done** or open a **PR** until checks pass.
 - **Before opening a PR**: Ensure the changes have been tested as above and that the PR description includes a **Testing** section with steps to reproduce and expected results (see [pr-rules](./pr-rules.md)).
 - **After merge (when applicable)**: For larger or riskier changes, the same kinds of checks can be run in staging or production after deploy, following the same approach (URLs, UI, forms, DB).
 
