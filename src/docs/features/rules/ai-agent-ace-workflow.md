@@ -2,6 +2,8 @@
 
 This document is the **canonical playbook** for **AI agents** (and similar automation) that implement or debug ACE across repositories. It complements [main-rules.md](./main-rules.md), [development-rules.md](./development-rules.md), [gitflow-rules.md](./gitflow-rules.md), [pr-rules.md](./pr-rules.md), [security-rules.md](./security-rules.md), and [testing-rules.md](./testing-rules.md).
 
+When the user requests **development work** that must be **planned in Jira and approved before implementation**, follow **[jira-led-development-planning.md](./jira-led-development-planning.md)** in addition to this file: map impacted apps, create Jira issues for the full plan, **stop until human acceptance in Jira**, then execute **per issue**.
+
 It exists because agents often run in **ephemeral workspaces** (e.g. **Daytona** sandboxes) where **local-only git state and files can disappear** when a session ends, and where **maintainers cannot see the filesystem** until changes are **pushed** to Git remotes.
 
 ---
@@ -92,17 +94,29 @@ It exists because agents often run in **ephemeral workspaces** (e.g. **Daytona**
 
 ---
 
-## 5. Relationship to other rules
+## 5. Jira-first planning (when applicable)
+
+If the stakeholder wants a **written plan in Jira** before code changes (or uses phrasing like “break this into Jira tickets first”), use [jira-led-development-planning.md](./jira-led-development-planning.md):
+
+1. Understand the request and map **all** relevant ACE repos/services.
+2. Create **Jira issues** (parent + children or linked issues) that cover the plan.
+3. **Do not** start bulk implementation until the human **accepts** the plan in Jira (and confirms in thread if that is team practice).
+4. Implement **according to each issue**, then open PRs per [pr-rules.md](./pr-rules.md) after validation.
+
+---
+
+## 6. Relationship to other rules
 
 | Topic | Primary doc |
 |-------|-------------|
+| Plan in Jira, then execute per issue | [jira-led-development-planning.md](./jira-led-development-planning.md) |
 | Branch names, protected branches, frontend dual PRs | [gitflow-rules.md](./gitflow-rules.md) |
 | Feature branch from development, service `docs/` | [development-rules.md](./development-rules.md) |
 | PR templates, `gh pr create` | [pr-rules.md](./pr-rules.md) |
 | Secrets in code, JWT, safe errors | [security-rules.md](./security-rules.md) |
 | What counts as “testing” for PRs | [testing-rules.md](./testing-rules.md) |
 
-**Agents**: Read this file at the **start** of any **implementation** task on ACE repos from an **automated or sandboxed** environment. If anything here conflicts with a **direct user instruction** for that task, follow the user for that task and note the exception in your summary.
+**Agents**: Read this file at the **start** of any **implementation** task on ACE repos from an **automated or sandboxed** environment. If the task is **Jira-gated development**, read [jira-led-development-planning.md](./jira-led-development-planning.md) **before** writing substantial code. If anything here conflicts with a **direct user instruction** for that task, follow the user for that task and note the exception in your summary.
 
 ---
 
@@ -116,4 +130,5 @@ It exists because agents often run in **ephemeral workspaces** (e.g. **Daytona**
 | Proactivity | Run authenticated steps when secrets exist; never leak secrets. |
 | Local run | Use local-env / minimal stack; default **`development`** on all repos unless user says otherwise. |
 | Done | Only after smoke or equivalent verification + share URLs. |
-| PR | After **user confirms**, open PR to **`development`** (usual base) and share the link. |
+| PR | After **user confirms** implementation, open PR to **`development`** (usual base) and share the link. |
+| Jira plan | If applicable: plan + issues in Jira first; execute only after acceptance ([jira-led-development-planning.md](./jira-led-development-planning.md)). |

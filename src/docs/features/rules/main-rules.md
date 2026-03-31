@@ -63,6 +63,8 @@ These rules **must always be followed** by anyone (human or AI agent) working on
 
 **Agents**: At the start of a task, identify which rules and docs apply (main rules, PR, development, infrastructure, documentation, standardization, and any service-specific docs). Use them to guide implementation and avoid violations.
 
+For **development requests** (code or infra changes in ACE), also read **[AI-AGENT-QUICKSTART.md](./AI-AGENT-QUICKSTART.md)** and **[jira-led-development-planning.md](./jira-led-development-planning.md)** so you do not skip the **Jira acceptance gate** before bulk implementation.
+
 ---
 
 ## 7. Nothing must be invented

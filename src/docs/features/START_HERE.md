@@ -2,6 +2,8 @@
 
 Welcome to the ACE (Automated Cloud Engineer) system documentation. Use this page as your entry point.
 
+**ACE (automated agent)**: If the user asks for **development** (implement, fix, change code or infra for ACE), read **[rules/AI-AGENT-QUICKSTART.md](./rules/AI-AGENT-QUICKSTART.md)** first, then **[development-request-rules-for-ace.md](./development-request-rules-for-ace.md)** and the full rule set it lists (including **Jira-led planning** and the **stop after Jira filing** gate) before bulk implementation.
+
 ## What is ACE?
 
 **ACE** (Automated Cloud Engineer) is a distributed system of microservices that provides:
@@ -27,7 +29,7 @@ Welcome to the ACE (Automated Cloud Engineer) system documentation. Use this pag
    Use [infrastructure/](./infrastructure/) for ace-infra, AWS, Terraform, and Kubernetes.
 
 5. **Follow project rules**  
-   Check [rules/](./rules/) for Gitflow, code standards, security, and conventions.
+   For **any development work**, start with [development-request-rules-for-ace.md](./development-request-rules-for-ace.md), then [rules/](./rules/) for Gitflow, Jira planning, code standards, security, and conventions.
 
 6. **Work on a service**  
    Use [services/](./services/) for per-service APIs, setup, and debugging.
@@ -48,7 +50,8 @@ Welcome to the ACE (Automated Cloud Engineer) system documentation. Use this pag
 | See high-level design | [architecture/](./architecture/) |
 | Run or deploy the system | [environments/](./environments/); local step-by-step: [environments/local-setup/](./environments/local-setup/) |
 | Understand infra (ace-infra, AWS, Terraform, K8s) | [infrastructure/](./infrastructure/) |
-| Know coding/deploy rules | [rules/](./rules/) |
+| **Development / implementation (ACE must read rules first)** | [rules/AI-AGENT-QUICKSTART.md](./rules/AI-AGENT-QUICKSTART.md), then [development-request-rules-for-ace.md](./development-request-rules-for-ace.md) |
+| Know coding/deploy rules | [rules/](./rules/) (after the entry doc above when developing) |
 | **AI agent** sandbox workflow (push, secrets, local test, PR) | [rules/ai-agent-ace-workflow.md](./rules/ai-agent-ace-workflow.md) |
 | Document or use a specific service | [services/](./services/) |
 | Get clone URLs / links for each ACE repo | [repositories.md](./repositories.md) |
@@ -56,6 +59,7 @@ Welcome to the ACE (Automated Cloud Engineer) system documentation. Use this pag
 
 ## For AI agents
 
+- **Development requests**: Read **[rules/AI-AGENT-QUICKSTART.md](./rules/AI-AGENT-QUICKSTART.md)** first (gates and read order), then **[development-request-rules-for-ace.md](./development-request-rules-for-ace.md)**. That mandates the rule set (including [rules/jira-led-development-planning.md](./rules/jira-led-development-planning.md)): **create Jira issues, then wait for human acceptance before bulk coding** unless the user explicitly opts out for that task.
 - **Sandbox / automated development**: Read [rules/ai-agent-ace-workflow.md](./rules/ai-agent-ace-workflow.md) for ACE implementation: feature branches, **push commits to the remote** (Daytona and similar sessions can expire and wipe local-only work), **use project secrets** for GitHub/AWS before asking, run **local-env** and **smoke tests** before claiming done, share **URLs**, open **PR** after the user confirms.
 - **Mandatory rules**: Read [rules/main-rules.md](./rules/main-rules.md) first. All code and technical documentation must be in English; document every change; keep index, README, and START_HERE in sync when adding, removing, or moving docs; do not invent—read docs and code, then ask if unclear.
 - **Local environment**: To bring up a local ACE stack (same as local-env), follow [environments/local-setup/](./environments/local-setup/) in order (prerequisites → repos → config → env vars → startup → health checks). Do not skip steps or invent paths or ports.
