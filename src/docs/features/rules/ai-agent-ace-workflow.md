@@ -8,18 +8,18 @@ It exists because agents often run in **ephemeral workspaces** (e.g. **Daytona**
 
 ---
 
-## 1. Git: feature branches and push discipline
+## 1. Git: ace-feat branches and push discipline
 
 ### Rules
 
-1. **Feature branch for code changes**  
-   Whenever you need to **change code** in any ACE repository, work on a **`feature/<kebab-case-purpose>`** (or `bugfix/*` / `hotfix/*` per [gitflow-rules.md](./gitflow-rules.md)) branch. Do **not** commit directly to **`development`**, **`main`**, **`staging`**, or **`production`** unless the user **explicitly** instructs otherwise.
+1. **ace-feat branch for code changes**  
+   Whenever you need to **change code** in any ACE repository, work on an **`ace-feat/<kebab-case-purpose>`** (or `bugfix/*` / `hotfix/*` per [gitflow-rules.md](./gitflow-rules.md)) branch. Do **not** commit directly to **`development`**, **`main`**, **`staging`**, or **`production`** unless the user **explicitly** instructs otherwise.
 
-2. **Push feature branches to the remote**  
-   After **meaningful commits** on a feature branch you created for ACE work, **`git push`** (or `git push -u origin <branch>` on first push) so the branch exists on the remote. **Push regularly**—especially before pausing, before long-running commands, or when the session might time out—not only at the very end.
+2. **Push ace-feat branches to the remote**  
+   After **meaningful commits** on an ace-feat branch you created for ACE work, **`git push`** (or `git push -u origin <branch>` on first push) so the branch exists on the remote. **Push regularly**—especially before pausing, before long-running commands, or when the session might time out—not only at the very end.
 
 3. **PR base**  
-   Open the PR from your feature branch **back to the branch you branched from** (almost always **`development`** for ACE service repos). Follow [pr-rules.md](./pr-rules.md). Do **not** open the PR until the user **agrees** the outcome is acceptable (see section 4).
+   Open the PR from your ace-feat branch **back to the branch you branched from** (almost always **`development`** for ACE service repos). Follow [pr-rules.md](./pr-rules.md). Do **not** open the PR until the user **agrees** the outcome is acceptable (see section 4).
 
 ### Rationale
 
@@ -72,7 +72,7 @@ It exists because agents often run in **ephemeral workspaces** (e.g. **Daytona**
 
 2. **Branch checkout policy**  
    - For **every** ACE app repo you clone or refresh: use branch **`development`** unless the user **explicitly** names another branch.  
-   - For **each repo where you change code**: create a **feature branch from `development`** unless the user explicitly requests a different base (e.g. hotfix flow).
+   - For **each repo where you change code**: create an **ace-feat branch from `development`** unless the user explicitly requests a different base (e.g. hotfix flow).
 
 3. **Definition of done includes verification**  
    Do **not** treat the task as **complete** until you have **verified** behavior that matters for the request—at minimum **smoke checks**:
@@ -124,11 +124,11 @@ If the stakeholder wants a **written plan in Jira** before code changes (or uses
 
 | Topic | Do |
 |-------|-----|
-| Branches | Feature (or bugfix/hotfix) branch; never commit to `development`/`main`/etc. without explicit user override. |
-| Push | Push feature branch to remote **regularly**; do not rely on local-only state in ephemeral sandboxes. |
+| Branches | ace-feat (or bugfix/hotfix) branch; never commit to `development`/`main`/etc. without explicit user override. |
+| Push | Push ace-feat branch to remote **regularly**; do not rely on local-only state in ephemeral sandboxes. |
 | Secrets | Discover and use project/workspace secrets for GitHub/AWS before asking the user. |
 | Proactivity | Run authenticated steps when secrets exist; never leak secrets. |
 | Local run | Use local-env / minimal stack; default **`development`** on all repos unless user says otherwise. |
 | Done | Only after smoke or equivalent verification + share URLs. |
-| PR | After **user confirms** implementation, open PR to **`development`** (usual base) and share the link. |
+| PR | After **user confirms** implementation, open PR from **ace-feat branch** to **`development`** (usual base) and share the link. |
 | Jira plan | If applicable: plan + issues in Jira first; execute only after acceptance ([jira-led-development-planning.md](./jira-led-development-planning.md)). |

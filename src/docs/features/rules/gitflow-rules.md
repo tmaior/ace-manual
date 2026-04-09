@@ -7,10 +7,10 @@ Rules for branch strategy, naming, and code flow across ACE repositories. Follow
 ## 1. Branch naming: kebab-case only
 
 - **All branch names** must use **kebab-case** (lowercase, words separated by hyphens).
-- **Examples**: `feature/user-management`, `bugfix/login-validation`, `hotfix/security-patch`, `feature/jira-project-links`.
+- **Examples**: `ace-feat/user-management`, `bugfix/login-validation`, `hotfix/security-patch`, `ace-feat/jira-project-links`.
 - Do not use `snake_case`, `camelCase`, or spaces. Do not use uppercase.
 
-**Agents**: When creating a branch, use only lowercase letters and hyphens. Match the prefix to the type of work: `feature/`, `bugfix/`, `hotfix/`.
+**Agents**: When creating a branch, use only lowercase letters and hyphens. Match the prefix to the type of work: `ace-feat/`, `bugfix/`, `hotfix/`.
 
 ---
 
@@ -27,11 +27,11 @@ Not every repository uses all of these. The exact flow depends on the repository
 
 ## 3. Short-lived branches (feature, bugfix, hotfix)
 
-- **feature/** – New functionality or larger changes. Branch from the appropriate long-lived branch (usually **development**), then merge back via PR.
-- **bugfix/** – Fixes for bugs. Same rules as feature: branch from **development** (or the branch that contains the bug), merge via PR.
+- **ace-feat/** – New functionality or larger changes. Branch from the appropriate long-lived branch (usually **development**), then merge back via PR.
+- **bugfix/** – Fixes for bugs. Same rules as ace-feat: branch from **development** (or the branch that contains the bug), merge via PR.
 - **hotfix/** – Urgent fixes that may need to go directly to staging or main. Use only when necessary; document in the PR why a hotfix was used.
 
-**Agents**: Create feature and bugfix branches from the **latest** long-lived branch (e.g. pull `development` first, then create `feature/your-change`). Do not branch from an outdated branch or from another feature branch unless the project explicitly allows it.
+**Agents**: Create ace-feat and bugfix branches from the **latest** long-lived branch (e.g. pull `development` first, then create `ace-feat/your-change`). Do not branch from an outdated branch or from another ace-feat branch unless the project explicitly allows it.
 
 ---
 
@@ -39,14 +39,14 @@ Not every repository uses all of these. The exact flow depends on the repository
 
 ### Most repositories (backend, bots, db-gateway, configuration, infra, etc.)
 
-- **Flow**: `feature` / `bugfix` → **development** → **staging** → **main**.
-- **Branch from**: Create `feature/*` or `bugfix/*` from **development**.
+- **Flow**: `ace-feat` / `bugfix` → **development** → **staging** → **main**.
+- **Branch from**: Create `ace-feat/*` or `bugfix/*` from **development**.
 - **Merge path**: Feature/bugfix PR into **development**; then PR **development → staging**; then PR **staging → main**.
 - **Deploy**: Runtime deploy for each service follows that repo’s CI/CD (GitHub Actions, branch filters, environments). Often production-like environments track **`main`** after **staging → main**; confirm in the repo’s workflows and [ace-infra](../infrastructure/ace-infra-repository.md).
 
 ### ace-dashboard-frontend
 
-- **Day-to-day flow**: `feature` / `bugfix` → **development** → **staging** → **main**, same PR chain as other repos (**development → staging**, then **staging → main**).
+- **Day-to-day flow**: `ace-feat` / `bugfix` → **development** → **staging** → **main**, same PR chain as other repos (**development → staging**, then **staging → main**).
 - **Release promotions from staging**: After validation on **staging**, two separate PRs are required:
   1. **staging → main**
   2. **staging → production**
@@ -93,11 +93,11 @@ Not every repository uses all of these. The exact flow depends on the repository
 
 | Topic | Rule |
 |-------|------|
-| Branch names | **kebab-case** only (e.g. `feature/user-management`, `bugfix/login-validation`). |
+| Branch names | **kebab-case** only (e.g. `ace-feat/user-management`, `bugfix/login-validation`). |
 | Long-lived branches | `development`, `staging`, `main`; `production` only in ace-dashboard-frontend. |
-| Feature/bugfix | Branch from **development**; merge via PR. |
-| Most repos | feature → development → staging → main; deploy source per repo CI/CD (often main after staging→main). |
-| ace-dashboard-frontend | feature → development → staging → main; release = **two PRs**: staging→main **and** staging→production (production pipeline watches `production`; `main` retained from legacy Lovable setup). |
+| ace-feat/bugfix | Branch from **development**; merge via PR. |
+| Most repos | ace-feat → development → staging → main; deploy source per repo CI/CD (often main after staging→main). |
+| ace-dashboard-frontend | ace-feat → development → staging → main; release = **two PRs**: staging→main **and** staging→production (production pipeline watches `production`; `main` retained from legacy Lovable setup). |
 | Commits | **Conventional Commits** (`feat`, `fix`, `docs`, etc.) in English. |
 | Protected branches | No direct push; use PRs only. |
 | Before PR | Update branch from base (rebase/merge), resolve conflicts. |

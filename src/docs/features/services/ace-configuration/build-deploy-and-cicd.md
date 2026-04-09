@@ -54,7 +54,7 @@ docker build -f infra-repo/ace-configuration/ace.configuration.Dockerfile -t ace
 ### Development
 
 - **Workflow**: `.github/workflows/eks-deploy.dev.yaml`
-- **Trigger**: Push to `development`, `feature/*`, `hotfix/*`
+- **Trigger**: Push to `development`, `ace-feat/*`, `hotfix/*`
 - **Steps**: Checkout app and infra; assume IAM role (ace-dev-eks-role); login to ECR; build Docker image with infra Dockerfile; tag `dev-<timestamp>`; push to ECR; fetch secrets from `ace/dev/configuration-secrets`; generate and apply K8s Secret; update image in Job YAML and namespace to **dev**; update Ingress host to `dev-*`; delete existing `ace-configuration-job` if present; apply manifests (Job and related resources).
 - **Cluster**: **development-ace-eks**
 

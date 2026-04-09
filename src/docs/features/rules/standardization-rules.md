@@ -27,7 +27,7 @@ See also: [main rules](./main-rules.md) (respect existing standardizations), [de
 
 ### Branches and documentation
 
-- **Branches**: **kebab-case** only (e.g. `feature/user-management`, `bugfix/login-validation`). See [gitflow rules](./gitflow-rules.md).
+- **Branches**: **kebab-case** only (e.g. `ace-feat/user-management`, `bugfix/login-validation`). See [gitflow rules](./gitflow-rules.md).
 - **Documentation files**: **kebab-case** (e.g. `api-endpoints.md`, `debugging-guide.md`). See [documentation rules](./documentation-rules.md).
 
 **Agents**: Use camelCase for variables and functions, PascalCase for types and classes. Use kebab-case for branch names and doc filenames. Match existing file-naming in the repo.
