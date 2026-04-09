@@ -25,7 +25,7 @@ Not every repository uses all of these. The exact flow depends on the repository
 
 ---
 
-## 3. Short-lived branches (ace-feat, bugfix, hotfix)
+## 3. Short-lived branches (feature, bugfix, hotfix)
 
 - **ace-feat/** – New functionality or larger changes. Branch from the appropriate long-lived branch (usually **development**), then merge back via PR.
 - **bugfix/** – Fixes for bugs. Same rules as ace-feat: branch from **development** (or the branch that contains the bug), merge via PR.
@@ -95,7 +95,7 @@ Not every repository uses all of these. The exact flow depends on the repository
 |-------|------|
 | Branch names | **kebab-case** only (e.g. `ace-feat/user-management`, `bugfix/login-validation`). |
 | Long-lived branches | `development`, `staging`, `main`; `production` only in ace-dashboard-frontend. |
-| Feature/bugfix | Branch from **development**; merge via PR. |
+| ace-feat/bugfix | Branch from **development**; merge via PR. |
 | Most repos | ace-feat → development → staging → main; deploy source per repo CI/CD (often main after staging→main). |
 | ace-dashboard-frontend | ace-feat → development → staging → main; release = **two PRs**: staging→main **and** staging→production (production pipeline watches `production`; `main` retained from legacy Lovable setup). |
 | Commits | **Conventional Commits** (`feat`, `fix`, `docs`, etc.) in English. |

@@ -64,7 +64,7 @@ So in demo: **no ops-scheduler, no commands-api, no bots**. The demo stack is fr
 ## How to deploy
 
 - **CI/CD**: **GitHub Actions** in each application repo. Demo deploy is triggered by:
-  - **ace-dashboard-frontend**: push to branch **demo**, **demo/***, or **feature/demo-*** (workflow `eks-deploy.demo.yaml`). Ingress host is set to `demo-dashboard.ace.ezops.cloud`; Route53 is updated via `ace-infra/scripts/update-route53-demo.sh`.
+  - **ace-dashboard-frontend**: push to branch **demo**, **demo/***, or **ace-feat/demo-*** (workflow `eks-deploy.demo.yaml`). Ingress host is set to `demo-dashboard.ace.ezops.cloud`; Route53 is updated via `ace-infra/scripts/update-route53-demo.sh`.
   - **ace-stack-backend**: push to branch **demo** or **demo/*** (workflow `eks-deploy.demo.yaml`). Ingress host is set to `demo-api-ace.ace.ezops.cloud`; service account uses IAM role `ace-web-backend-demo-role`; Route53 updated via same script.
   - **ace-db-gateway**: push to **demo** or **demo/*** (workflow `eks-deploy.demo.yaml`). Ingress host `demo-db-gateway.ace.ezops.cloud`; Route53 via same script.
   - **ace-configuration**: push to **demo** or **demo/*** (workflow `eks-deploy.demo.yaml`). Deploys to namespace demo; URL `demo-configuration.ace.ezops.cloud`. May run as Job (migrations) or Deployment; see ace-infra docs/demo-environment.
@@ -169,7 +169,7 @@ Demo uses **production** resources (gateway, RDS, Redis, SQS) for everything not
 
 - **ace-infra** — Manifests (ace-web-frontend, ace-web-backend, ace-db-gateway, ace-configuration if present), scripts (`scripts/update-route53-demo.sh`), and docs (`docs/demo-environment/`: maintenance-guide.md, troubleshooting-guide.md, training-slides.md, route53-implementation-summary.md, deploy-guide.md).
 - **Repos with demo workflow** — ace-dashboard-frontend, ace-stack-backend, ace-db-gateway, ace-configuration (each has `.github/workflows/eks-deploy.demo.yaml`). No demo workflow: ace-ops-scheduler, ace-commands-api, ace-slackbot, ace-sec-bot, ace-ops-bot.
-- **Frontend deploy** — ace-dashboard-frontend `.github/workflows/eks-deploy.demo.yaml` (triggers: demo, demo/*, feature/demo-*).
+- **Frontend deploy** — ace-dashboard-frontend `.github/workflows/eks-deploy.demo.yaml` (triggers: demo, demo/*, ace-feat/demo-*).
 - **Backend deploy** — ace-stack-backend `.github/workflows/eks-deploy.demo.yaml` (triggers: demo, demo/*).
 - **DB Gateway deploy** — ace-db-gateway `.github/workflows/eks-deploy.demo.yaml` (triggers: demo, demo/*).
 - **Configuration deploy** — ace-configuration `.github/workflows/eks-deploy.demo.yaml` (triggers: demo, demo/*).

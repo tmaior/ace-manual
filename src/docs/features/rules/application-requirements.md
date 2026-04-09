@@ -55,7 +55,7 @@ Details for specific topics (e.g. PR process, infrastructure tags, security) are
 - **Variables and functions**: **camelCase** (e.g. `userData`, `fetchUserData`).
 - **Classes, types, interfaces**: **PascalCase** (e.g. `UserService`, `ApiResponse`).
 - **Constants** (config, env-derived): **UPPER_SNAKE_CASE** (e.g. `API_BASE_URL`, `MAX_RETRIES`).
-- **Branches**: **kebab-case** only (e.g. `feature/user-management`, `bugfix/login-validation`). See [gitflow-rules](./gitflow-rules.md).
+- **Branches**: **kebab-case** only (e.g. `ace-feat/user-management`, `bugfix/login-validation`). See [gitflow-rules](./gitflow-rules.md).
 - **Documentation files**: **kebab-case** (e.g. `api-endpoints.md`, `debugging-guide.md`).
 
 ### 3.4 Commits

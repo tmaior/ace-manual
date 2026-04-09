@@ -49,7 +49,7 @@ When and where to document; document everything that is done. Structure and keba
 Naming (camelCase, PascalCase, kebab-case), APIs and URLs (env vars, no hardcoding), Conventional Commits, error handling and logging, security (validation, JWT), doc structure, infra tags and naming. Rule to reuse existing patterns instead of inventing new ones.
 
 **[gitflow-rules.md](./gitflow-rules.md)**  
-Branch naming (kebab-case), long-lived branches (development, staging, main, production for frontend), feature/bugfix/hotfix branches, repository-specific flow (most repos vs ace-dashboard-frontend dual promotion **staging → main** and **staging → production**), Conventional Commits, no direct push to protected branches, and keeping branches up to date before opening a PR.
+Branch naming (kebab-case), long-lived branches (development, staging, main, production for frontend), ace-feat/bugfix/hotfix branches, repository-specific flow (most repos vs ace-dashboard-frontend dual promotion **staging → main** and **staging → production**), Conventional Commits, no direct push to protected branches, and keeping branches up to date before opening a PR.
 
 **[security-rules.md](./security-rules.md)**  
 Input validation, JWT on protected endpoints, secrets (no commit or hardcode), safe error messages, rate limiting for bots, and permissions and authorization. Consolidates security requirements for all services.

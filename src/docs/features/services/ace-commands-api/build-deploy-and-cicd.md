@@ -54,7 +54,7 @@ docker build -f infra-repo/ace-commands-api/ace.commands-api.Dockerfile -t ace/c
 ### Development
 
 - **Workflow**: `.github/workflows/eks-deploy.dev.yaml`
-- **Trigger**: Push to `development`, `feature/*`, `hotfix/*`, `bugfix/*`
+- **Trigger**: Push to `development`, `ace-feat/*`, `hotfix/*`, `bugfix/*`
 - **Steps**: Checkout app + infra repo; copy DevOps scripts; assume IAM role (ace-dev-eks-role); login to ECR; build Docker image with infra Dockerfile; tag `dev-<timestamp>`; push to ECR; fetch secrets from `ace/dev/commands-api-secrets`; generate K8s Secret YAML; update deployment image and namespace (dev), EFS ID, ingress host (dev-*); apply manifests to cluster **development-ace-eks**, namespace **dev**.
 - **Secrets**: INFRA_REPO_TOKEN, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY (for assume-role and ECR).
 

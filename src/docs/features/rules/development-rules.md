@@ -4,34 +4,34 @@ Rules for implementing and testing code changes across the ACE system. These rul
 
 ---
 
-## 1. Feature branches from latest development
+## 1. ace-feat branches from latest development
 
-- Whenever **code changes** are required, create a **feature branch** from the **latest code** on the **`development`** branch.
-- Do not branch from `main`, `staging`, or an outdated local copy. Ensure `development` is up to date (e.g. pull or fetch) before creating the feature branch.
+- Whenever **code changes** are required, create an **ace-feat branch** from the **latest code** on the **`development`** branch.
+- Do not branch from `main`, `staging`, or an outdated local copy. Ensure `development` is up to date (e.g. pull or fetch) before creating the ace-feat branch.
 - Use **kebab-case** for branch names (e.g. `ace-feat/user-management`, `ace-feat/jira-project-links`).
 
-**Agents**: Before starting implementation, create or switch to a feature branch whose base is the current `development` branch. Do not implement on `development` directly.
+**Agents**: Before starting implementation, create or switch to an ace-feat branch whose base is the current `development` branch. Do not implement on `development` directly.
 
 ---
 
 ## 2. Local testing and readiness for PR
 
 - After implementation, the **entire system** (or the minimal set needed for the change) must be **tested locally** before the work is considered **complete** or a **PR** is opened.
-- **Test mix**: Use the **code from the feature branches** you changed, together with the **code from the `development` branches** of **all other apps** that were not modified.
+- **Test mix**: Use the **code from the ace-feat branches** you changed, together with the **code from the `development` branches** of **all other apps** that were not modified.
 - **Goal**: Ensure that everything works and that services **communicate correctly** with each other (e.g. frontend ↔ backend ↔ db-gateway, bots, etc.).
-- Only after confirming that the integrated scenario is correct may you treat the change as **ready for review** and open a **PR**. Use **`git push`** on the feature branch so the remote has your commits; in **ephemeral sandboxes**, push **regularly** during development (see [ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md)), not only at the last second.
+- Only after confirming that the integrated scenario is correct may you treat the change as **ready for review** and open a **PR**. Use **`git push`** on the ace-feat branch so the remote has your commits; in **ephemeral sandboxes**, push **regularly** during development (see [ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md)), not only at the last second.
 
-**Agents**: When development is complete, run the full stack locally (e.g. via docker-compose or per-service runbooks), using feature-branch code for changed services and development-branch code for unchanged ones. Do **not** treat work as **finished** or open a **PR** until this integration testing passes.
+**Agents**: When development is complete, run the full stack locally (e.g. via docker-compose or per-service runbooks), using ace-feat-branch code for changed services and development-branch code for unchanged ones. Do **not** treat work as **finished** or open a **PR** until this integration testing passes.
 
-**Ephemeral sandboxes (e.g. Daytona)**: Session timeouts can **destroy local-only commits**. Follow [ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md): **`git push`** the feature branch **regularly** after coherent commits so work stays visible and recoverable, while still running **integration / smoke checks** before you declare the task complete and before opening a PR.
+**Ephemeral sandboxes (e.g. Daytona)**: Session timeouts can **destroy local-only commits**. Follow [ai-agent-ace-workflow.md](./ai-agent-ace-workflow.md): **`git push`** the ace-feat branch **regularly** after coherent commits so work stays visible and recoverable, while still running **integration / smoke checks** before you declare the task complete and before opening a PR.
 
 ---
 
-## 3. Moving feature work into development
+## 3. Moving ace-feat work into development
 
-- After everything is **finished** (implementation + local testing), the **code from the feature branches** must be **moved into `development`** (typically via merge or PR into `development`, following the project’s [PR rules](./pr-rules.md) and [gitflow](./gitflow-rules.md) if documented).
+- After everything is **finished** (implementation + local testing), the **code from the ace-feat branches** must be **moved into `development`** (typically via merge or PR into `development`, following the project’s [PR rules](./pr-rules.md) and [gitflow](./gitflow-rules.md) if documented).
 
-**Agents**: Once local testing is successful, open a PR from the feature branch to `development` (or follow the repository’s defined process) and complete the merge. Do not leave feature work only on feature branches.
+**Agents**: Once local testing is successful, open a PR from the ace-feat branch to `development` (or follow the repository’s defined process) and complete the merge. Do not leave ace-feat work only on ace-feat branches.
 
 ---
 
@@ -84,9 +84,9 @@ Rules for implementing and testing code changes across the ACE system. These rul
 
 | Topic | Rule |
 |-------|------|
-| Branching | Create a feature branch from latest `development`; use kebab-case. |
-| Testing | Test the full system locally (feature branches + development for unchanged apps) before commit/push. |
-| Merge | After success, move feature-branch code into `development` (PR/merge). |
+| Branching | Create a ace-feat branch from latest `development`; use kebab-case. |
+| Testing | Test the full system locally (ace-feat branches + development for unchanged apps) before commit/push. |
+| Merge | After success, move ace-feat-branch code into `development` (PR/merge). |
 | docs/ | Use each service’s `docs/` to understand the app and find files; update docs with every code change. |
 | New docs | Allowed inside `docs/` as long as all rules (main, documentation, structure) are followed. |
 | Repos | Clone and read any repo as needed to accomplish the task. |

@@ -61,7 +61,7 @@ docker build -t ace/web-frontend:local -f infra-repo/ace-web-frontend/ace.web-fr
 ### Development
 
 - **Workflow**: `.github/workflows/eks-deploy.dev.yaml`
-- **Trigger**: Push to `development`, `feature/*`, `hotfix/*`, `bugfix/*`
+- **Trigger**: Push to `development`, `ace-feat/*`, `hotfix/*`, `bugfix/*`
 - **Steps**: Checkout app and infra; assume IAM role (ace-dev-eks-role); login to ECR; fetch secrets from `ace/dev/web-frontend-secrets`; create `.env.development` from secrets; build Docker image with infra Dockerfile; tag `dev-<timestamp>`; push to ECR; create K8s Secret from secrets; update image in Deployment YAML and namespace to **dev**; set Ingress host to `dev-dashboard.ace.ezops.cloud`; apply manifests.
 - **Cluster**: **development-ace-eks**
 - **APP_NAME**: `web-frontend`
