@@ -13,7 +13,7 @@ It exists because agents often run in **ephemeral workspaces** (e.g. **Daytona**
 ### Rules
 
 1. **Feature branch for code changes**  
-   Whenever you need to **change code** in any ACE repository, work on a **`feature/<kebab-case-purpose>`** (or `bugfix/*` / `hotfix/*` per [gitflow-rules.md](./gitflow-rules.md)) branch. Do **not** commit directly to **`development`**, **`main`**, **`staging`**, or **`production`** unless the user **explicitly** instructs otherwise.
+   Whenever you need to **change code** in any ACE repository, work on a **`ace-feat/<kebab-case-purpose>`** (or `bugfix/*` / `hotfix/*` per [gitflow-rules.md](./gitflow-rules.md)) branch. Do **not** commit directly to **`development`**, **`main`**, **`staging`**, or **`production`** unless the user **explicitly** instructs otherwise.
 
 2. **Push feature branches to the remote**  
    After **meaningful commits** on a feature branch you created for ACE work, **`git push`** (or `git push -u origin <branch>` on first push) so the branch exists on the remote. **Push regularly**—especially before pausing, before long-running commands, or when the session might time out—not only at the very end.

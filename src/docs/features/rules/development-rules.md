@@ -8,7 +8,7 @@ Rules for implementing and testing code changes across the ACE system. These rul
 
 - Whenever **code changes** are required, create a **feature branch** from the **latest code** on the **`development`** branch.
 - Do not branch from `main`, `staging`, or an outdated local copy. Ensure `development` is up to date (e.g. pull or fetch) before creating the feature branch.
-- Use **kebab-case** for branch names (e.g. `feature/user-management`, `feature/jira-project-links`).
+- Use **kebab-case** for branch names (e.g. `ace-feat/user-management`, `ace-feat/jira-project-links`).
 
 **Agents**: Before starting implementation, create or switch to a feature branch whose base is the current `development` branch. Do not implement on `development` directly.
 
